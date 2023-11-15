@@ -17,3 +17,6 @@ type Meta struct {
 	Occupation  string
 	Err         error
 }
+
+func (mdx *MDXFile) Read() {
+}
