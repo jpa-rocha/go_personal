@@ -1,6 +1,0 @@
-VERSION 0.7
-ARG --global GO_VERSION=1.21.4
-FROM golang:$GO_VERSION-alpine3.18
-WORKDIR server
-
-
