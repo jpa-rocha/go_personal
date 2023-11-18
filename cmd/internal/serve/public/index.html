@@ -1,0 +1,18 @@
+<html>
+  <head>
+	  <script src="https://unpkg.com/htmx.org@1.9.8" integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr" crossorigin="anonymous"></script>
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+	  <link rel="stylesheet" href="/styles/style.css"></link>
+	  <title>Home page</title>
+  </head>
+  <body>
+	  <h1 class="title">Hello World</h1>
+	  <nav>
+		  <button class="btn_nav" hx-get="/main" hx-target="#container">Home</button>
+		  <button class="btn_nav" hx-get="/add" hx-target="#container">Add Device</button>
+		  <button class="btn_nav" hx-get="/devices" hx-target="#container">Devices</button>
+	  </nav>
+	  <div id="container" hx-get="/main" hx-trigger="load" hx-swap="innerHTML">
+	  </div>
+  </body>
+</html>
