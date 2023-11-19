@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <script src="https://unpkg.com/htmx.org@1.9.8" integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr" crossorigin="anonymous"></script>
@@ -14,7 +15,7 @@
                 <ul>
                     <li><a href="/main" role="button" class="outline">Home</a></li>
                     <li><a href="/projects" role="button" class="outline">Projects</a></li>
-                    <li><a href="/cv" role="button" class="outline">CV</a></li>
+                    <li><button hx-get="/cv" hx-target="#target" hx-swap="innerHTML" role="button" class="outline">CV</button></li>
                 </ul>
             </nav>
             <div id="target" hx-get="/main" hx-trigger="load" hx-swap="innerHTML"></div>
