@@ -19,12 +19,12 @@ var content embed.FS
 
 func RunServe(_ *cobra.Command, _ []string) error {
 	server := NewServer(
-        content, 
-        &http.Server{
-		    Addr:         port,
-		    ReadTimeout:  timeOut * time.Second,
-	    	WriteTimeout: timeOut * time.Second,
-	    },
+            content, 
+            &http.Server{
+		        Addr:         port,
+		        ReadTimeout:  timeOut * time.Second,
+	    	    WriteTimeout: timeOut * time.Second,
+	        },
     )
 
     server.setStaticPaths()
