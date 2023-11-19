@@ -2,6 +2,7 @@ package serve
 
 import (
 	"embed"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -13,7 +14,6 @@ import (
 const timeOut = 10
 const port = ":8000"
 
-// TODO: is embeded needed is there a non global solution?
 //go:embed public
 var content embed.FS
 
@@ -29,10 +29,10 @@ func RunServe(_ *cobra.Command, _ []string) error {
 
     server.setStaticPaths()
     if server.Err != nil {
-        log.Printf("error: a problem occurred setting the file system: %s", server.Err.Error())
-        return server.Err 
+        err := fmt.Errorf("error: a problem occurred setting the file system: %w", server.Err)
+        return err 
     }
-    http.HandleFunc("/", server.ServeHTTP)
+    http.HandleFunc("/*", server.ServeHTTP)
     log.Println("Server started at http://localhost" + port)
     
 	log.Fatal(server.Config.ListenAndServe())

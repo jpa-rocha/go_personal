@@ -6,13 +6,10 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"os"
 )
 
-
 func handleIndex(w http.ResponseWriter, _ *http.Request, content embed.FS) {    
-    fmt.Println(os.Getwd())
-    tmpl, err := getTmpl("index.html", content)
+    tmpl, err := getTmpl("cv.html", content)
 	if err != nil {
 		log.Fatal(err)
 	}

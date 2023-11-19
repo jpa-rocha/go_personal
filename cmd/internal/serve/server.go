@@ -3,7 +3,7 @@ package serve
 import (
 	"embed"
 	"io/fs"
-	"net/http"
+    "net/http"
 	"path/filepath"
 )
 
@@ -25,6 +25,7 @@ func NewServer(content embed.FS, config *http.Server) *Server {
 // setStaticPath determines which folders inside the public folder will be included.
 func (s *Server) setStaticPaths() {
     paths := []string{
+        "/",
         "/static/",
         "/templates/",
     }
@@ -42,9 +43,8 @@ func (s *Server) handlePaths(paths []string) {
     }
 }
 
-// TODO: the server does not find index.html
 func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {    
-    if r.URL.Path == "/" {
+    if r.URL.Path == "/cv" {
         handleIndex(w, r, s.FileSystem)
     }
 }
