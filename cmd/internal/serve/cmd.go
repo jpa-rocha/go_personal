@@ -13,21 +13,28 @@ import (
 // TODO: need to come from config
 const timeOut = 10
 const port = ":8000"
-
 //go:embed public
 var content embed.FS
 
 func RunServe(_ *cobra.Command, _ []string) error {
+    paths := []string {
+                "/",
+                "/static/",
+                "/templates/",
+    }
 	server := NewServer(
-            content, 
             &http.Server{
 		        Addr:         port,
 		        ReadTimeout:  timeOut * time.Second,
 	    	    WriteTimeout: timeOut * time.Second,
 	        },
+            NewRouter(
+                content, 
+                paths,
+            ),
     )
 
-    server.setStaticPaths()
+    server.ServeStaticPaths()
     if server.Err != nil {
         err := fmt.Errorf("error: a problem occurred setting the file system: %w", server.Err)
         return err 

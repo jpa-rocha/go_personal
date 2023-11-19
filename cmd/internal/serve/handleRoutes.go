@@ -8,8 +8,10 @@ import (
 	"net/http"
 )
 
-func handleIndex(w http.ResponseWriter, _ *http.Request, content embed.FS) {    
-    tmpl, err := getTmpl("cv.html", content)
+func handleCV(w http.ResponseWriter, _ *http.Request, content embed.FS) {    
+    tmpl, err := getTmpl("templates/cv.html", content)
+    log.Panicln("error")
+    log.Panicln(err)
 	if err != nil {
 		log.Fatal(err)
 	}
