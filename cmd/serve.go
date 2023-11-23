@@ -1,3 +1,4 @@
+//nolint:gochecknoinits,gochecknoglobals // Cobra sub commands need to be initiated and are called by main command.
 package cmd
 
 import (
