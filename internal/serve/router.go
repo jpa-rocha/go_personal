@@ -11,7 +11,7 @@ import (
 )
 
 func (s *Server) setStaticPaths() {
-    static := []string{"/", "/static/", "/templates/", "/components/"} //TODO: should be in config
+	static := []string{"/", "/static/", "/templates/", "/components/"} // TODO: should be in config.
 
 	const base = "assets"
 	staticFS, err := fs.Sub(public.Assets, base)

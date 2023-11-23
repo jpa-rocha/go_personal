@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// TODO: need to come from config
+// TODO: need to come from config.
 const (
 	timeOut = 10
 	port    = ":8000"
