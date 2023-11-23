@@ -9,7 +9,7 @@ import (
 )
 
 var RootCmd = &cobra.Command {
-    Use:    "Adamastor",
+    Use:    "adamastor",
     Short:  "Go Web Server",
     Long:   "Very Large and Scary Web Server",
 
@@ -24,14 +24,3 @@ func Execute() {
         os.Exit(1)
     }
 }
-
-// func initConfig(validate bool) {
-//     if cfgfile != "" {
-//         viper.SetConfigFile(cfgFile)
-//         parseConfig(validate)
-//     }
-// }
-//
-// func ParseConfig(val bool) {
-//     
-// }

@@ -1,9 +1,14 @@
 package main
 
 import (
+	"os"
+
 	"adamastor/cmd"
 )
 
 func main() {
-    cmd.RootCmd.Execute()
+	err := cmd.RootCmd.Execute()
+	if err != nil {
+		os.Exit(1)
+	}
 }
