@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/htmx.org@1.9.8" integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+        <link rel="stylesheet" href="/static/css/style.css"></link>
+        <link rel="stylesheet" href="/routes/index/style.css"></link>
+        <title>JR</title>
+    </head>
+    <body>
+        <div class="container">
+            <div hx-get="/components/nav" hx-trigger="load" hx-swap="outerHTML"></div>
+            <div id="targed">
+                INDEX
+            </div>
+        </div>
+    </body>
+</html>
+
