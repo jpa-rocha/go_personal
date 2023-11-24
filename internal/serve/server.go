@@ -46,7 +46,6 @@ func NewServer() *Server {
 		Err:    nil,
 		Router: http.NewServeMux(),
 	}
-	server.setStaticPaths()
 	server.handleRoutes()
 	server.Config.Handler = server.Router
 	return &server

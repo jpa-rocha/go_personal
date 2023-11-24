@@ -1,8 +1,6 @@
 package serve
 
 import (
-	"fmt"
-	"html/template"
 	"io/fs"
 	"log"
 	"net/http"
@@ -11,7 +9,7 @@ import (
 )
 
 func (s *Server) setStaticPaths() {
-	static := []string{"/", "/static/", "/templates/", "/components/"} // TODO: should be in config.
+	static := []string{"/static/", "/components/", "/routes/"} // TODO: should be in config.
 
 	const base = "assets"
 	staticFS, err := fs.Sub(public.Assets, base)
@@ -20,16 +18,22 @@ func (s *Server) setStaticPaths() {
 		return
 	}
 	for _, path := range static {
-		s.Router.Handle(path, http.StripPrefix(path, http.FileServer(http.FS(staticFS))))
+		s.Router.Handle(path, http.FileServer(http.FS(staticFS)))
 	}
 }
 
 func (s *Server) handleRoutes() {
+	s.setStaticPaths()
 	s.Router.HandleFunc("/cv", handleCV)
+
+	s.Router.HandleFunc("/components/test", handleComponentTest)
+	s.Router.HandleFunc("/components/nav", handleComponentNav)
+
+	s.Router.HandleFunc("/", handleIndex)
 }
 
 func handleCV(w http.ResponseWriter, _ *http.Request) {
-	tmpl, err := getTmpl("templates/cv.html")
+	tmpl, err := getTmpl("assets/routes/cv/cv.html")
 	if err != nil {
 		log.Println(err)
 	}
@@ -39,20 +43,12 @@ func handleCV(w http.ResponseWriter, _ *http.Request) {
 	}
 }
 
-func getTmpl(file string) (*template.Template, error) {
-	tmpl := template.New("index")
-
-	fileContents, err := public.Assets.ReadFile(file)
+func handleIndex(w http.ResponseWriter, _ *http.Request) {
+	tmpl, err := getTmpl("assets/routes/index/index.html")
 	if err != nil {
-		return tmpl, fmt.Errorf("error: %w", err)
+		log.Println(err)
 	}
-
-	htmlString := string(fileContents)
-
-	tmpl, err = tmpl.Parse(htmlString)
-	if err != nil {
-		return tmpl, fmt.Errorf("error: %w", err)
+	if err = tmpl.Execute(w, nil); err != nil {
+		log.Println(err)
 	}
-
-	return tmpl, nil
 }
