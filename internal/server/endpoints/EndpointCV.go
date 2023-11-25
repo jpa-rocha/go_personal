@@ -16,4 +16,3 @@ func HandleCV(w http.ResponseWriter, _ *http.Request) {
 		log.Println(err)
 	}
 }
-
