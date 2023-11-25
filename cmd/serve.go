@@ -4,13 +4,13 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 
-	"adamastor/internal/serve"
+	"adamastor/internal/server"
 )
 
 var ServeCmd = &cobra.Command{
 	Use:   "serve",
 	Short: "Serve your files",
-	RunE:  serve.RunServe,
+	RunE:  server.RunServe,
 }
 
 func init() {
