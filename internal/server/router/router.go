@@ -22,7 +22,7 @@ func NewRouter() *Router {
 }
 
 func (r *Router) SetStaticPaths() {
-	static := []string{"/static/", "/components/", "/routes/"} // TODO: should be in config.
+	static := []string{"/static/", "/components/", "/routes/", "/templates"} // TODO: should be in config.
 
 	const base = "assets"
 	staticFS, err := fs.Sub(public.Assets, base)

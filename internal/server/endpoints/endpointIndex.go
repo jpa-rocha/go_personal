@@ -1,13 +1,14 @@
 package endpoints
 
 import (
-	"adamastor/internal/server/utilities"
 	"log"
 	"net/http"
+
+	"adamastor/internal/server/templates"
 )
 
 func HandleIndex(w http.ResponseWriter, _ *http.Request) {
-	tmpl, err := utilities.GetTmpl("assets/routes/index/index.html")
+	tmpl, err := templates.GetTmpl("assets/routes/index/index.html")
 	if err != nil {
 		log.Println(err)
 	}

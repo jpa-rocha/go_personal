@@ -1,4 +1,4 @@
-package utilities
+package templates
 
 import (
 	"fmt"
@@ -9,7 +9,6 @@ import (
 
 func GetTmpl(file string) (*template.Template, error) {
 	tmpl := template.New("index")
-
 	fileContents, err := public.Assets.ReadFile(file)
 	if err != nil {
 		return tmpl, fmt.Errorf("error: %w", err)

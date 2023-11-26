@@ -1,13 +1,13 @@
 package endpoints
 
 import (
-	"adamastor/internal/server/utilities"
+	"adamastor/internal/server/templates"
 	"log"
 	"net/http"
 )
 
 func HandleCV(w http.ResponseWriter, _ *http.Request) {
-	tmpl, err := utilities.GetTmpl("assets/routes/cv/cv.html")
+	tmpl, err := templates.GetTmpl("assets/routes/cv/cv.html")
 	if err != nil {
 		log.Println(err)
 	}
