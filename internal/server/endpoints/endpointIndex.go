@@ -12,7 +12,7 @@ func HandleIndex(w http.ResponseWriter, _ *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
-	if err = tmpl.Execute(w, nil); err != nil {
+	if err = tmpl.ExecuteTemplate(w, "layout.html", nil); err != nil {
 		log.Println(err)
 	}
 }
