@@ -1,18 +1,15 @@
 package endpoints
 
 import (
-	"adamastor/internal/server/templates"
 	"log"
 	"net/http"
+
+	"adamastor/internal/server/templates"
 )
 
 func HandleComponentNav(w http.ResponseWriter, _ *http.Request) {
-	tmpl, err := templates.GetTmpl("assets/components/nav.html")
+	err := templates.RenderTemplate("assets/components/nav.html", w)
 	if err != nil {
-		log.Println(err)
-	}
-
-	if err = tmpl.Execute(w, nil); err != nil {
 		log.Println(err)
 	}
 }
