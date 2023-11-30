@@ -8,20 +8,33 @@ import (
 	"adamastor/public"
 )
 
-func RenderTemplate(route string, w http.ResponseWriter) error {
-	t := AssembleTemplate(route)
-	err := t.ExecuteTemplate(w, "layout.html", "content")
+type TemplateMap struct {
+	entries *template.Template
+}
+
+func NewTemplateMap() *TemplateMap {
+	files := []string{
+		"assets/templates/*html",
+		"assets/components/*.html",
+		"assets/routes/*/*.html",
+	}
+	t := template.Must(template.ParseFS(
+		public.Assets,
+		files...,
+	))
+
+	log.Println(t.DefinedTemplates())
+	return &TemplateMap{entries: t}
+}
+
+func (t *TemplateMap) RenderTemplate(route string, w http.ResponseWriter) error {
+	err := t.entries.ExecuteTemplate(w, "layout.html", nil)
+	log.Println(t.entries.DefinedTemplates())
 	if err != nil {
-		log.Println(err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		log.Println("Template execution error:", err)
 	}
 	return err
 }
 
-func AssembleTemplate(route string) *template.Template {
-	t := template.Must(template.ParseFS(
-		public.Assets,
-		"assets/templates/layout.html",
-		route))
-	log.Println(t.DefinedTemplates())
-	return t
-}
+var T = NewTemplateMap()

@@ -8,9 +8,9 @@ import (
 )
 
 func HandleIndex(w http.ResponseWriter, _ *http.Request) {
-    err := templates.RenderTemplate("assets/routes/index/index.html", w)
-    if err != nil {
-        // TODO: return some sort of error page
-        log.Println(err)
-    } 
+	err := templates.T.RenderTemplate("index.html", w)
+	if err != nil {
+		// TODO: return some sort of error page
+		log.Println(err)
+	}
 }

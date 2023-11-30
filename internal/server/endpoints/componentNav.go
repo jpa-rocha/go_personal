@@ -8,7 +8,7 @@ import (
 )
 
 func HandleComponentNav(w http.ResponseWriter, _ *http.Request) {
-	err := templates.RenderTemplate("assets/components/nav.html", w)
+	err := templates.T.RenderTemplate("nav.html", w)
 	if err != nil {
 		log.Println(err)
 	}

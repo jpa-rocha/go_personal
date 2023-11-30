@@ -8,7 +8,7 @@ import (
 )
 
 func HandleCV(w http.ResponseWriter, _ *http.Request) {
-	err := templates.RenderTemplate("assets/routes/cv/cv.html", w)
+	err := templates.T.RenderTemplate("cv.html", w)
 	if err != nil {
 		log.Println(err)
 	}
