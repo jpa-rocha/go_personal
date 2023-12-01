@@ -5,24 +5,32 @@ import (
 	"net/http"
 
 	"adamastor/internal/server/endpoints"
+	"adamastor/internal/server/templates"
 	"adamastor/public"
 )
 
 type Router struct {
-	Mux *http.ServeMux
-	Err error
+	Mux     *http.ServeMux
+	Handler *endpoints.Handler
+	Err     error
 }
 
 func NewRouter() *Router {
 	router := Router{
-		Mux: http.NewServeMux(),
-		Err: nil,
+		Mux:     http.NewServeMux(),
+		Handler: endpoints.NewHandler(templates.NewTemplateMap()),
+		Err:     nil,
 	}
 	return &router
 }
 
 func (r *Router) SetStaticPaths() {
-	static := []string{"/static/", "/components/", "/routes/", "/templates"} // TODO: should be in config.
+	static := []string{
+		"/static/",
+		"/components/",
+		"/routes/",
+		"/templates",
+	} // TODO: should be in config.
 
 	const base = "assets"
 	staticFS, err := fs.Sub(public.Assets, base)
@@ -37,9 +45,10 @@ func (r *Router) SetStaticPaths() {
 
 func (r *Router) HandleRoutes() {
 	r.SetStaticPaths()
-	r.Mux.HandleFunc("/cv", endpoints.HandleCV)
 
-	r.Mux.HandleFunc("/components/nav", endpoints.HandleComponentNav)
+	r.Mux.HandleFunc("/cv", r.Handler.HandleCV)
 
-	r.Mux.HandleFunc("/", endpoints.HandleIndex)
+	r.Mux.HandleFunc("/components/nav", r.Handler.HandleComponentNav)
+
+	r.Mux.HandleFunc("/", r.Handler.HandleIndex)
 }

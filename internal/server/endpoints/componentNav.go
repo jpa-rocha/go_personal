@@ -3,12 +3,10 @@ package endpoints
 import (
 	"log"
 	"net/http"
-
-	"adamastor/internal/server/templates"
 )
 
-func HandleComponentNav(w http.ResponseWriter, _ *http.Request) {
-	err := templates.T.RenderTemplate("nav.html", w)
+func (h *Handler) HandleComponentNav(w http.ResponseWriter, _ *http.Request) {
+	err := h.t.RenderTemplate(w, "nav.html", nil)
 	if err != nil {
 		log.Println(err)
 	}

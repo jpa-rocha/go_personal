@@ -10,3 +10,7 @@ $dark-font-color: darken($font-color, 20%);
 $light-font-color: lighten($font-color, 20%);
 
 $redButton: #E0301A;
+
+body {
+    background: $background;
+}

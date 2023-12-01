@@ -3,12 +3,10 @@ package endpoints
 import (
 	"log"
 	"net/http"
-
-	"adamastor/internal/server/templates"
 )
 
-func HandleCV(w http.ResponseWriter, _ *http.Request) {
-	err := templates.T.RenderTemplate("cv.html", w)
+func (h *Handler) HandleCV(w http.ResponseWriter, _ *http.Request) {
+	err := h.t.RenderTemplate(w, "cv.html", nil)
 	if err != nil {
 		log.Println(err)
 	}

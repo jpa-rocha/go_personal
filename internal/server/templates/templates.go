@@ -23,18 +23,14 @@ func NewTemplateMap() *TemplateMap {
 		files...,
 	))
 
-	log.Println(t.DefinedTemplates())
 	return &TemplateMap{entries: t}
 }
 
-func (t *TemplateMap) RenderTemplate(route string, w http.ResponseWriter) error {
-	err := t.entries.ExecuteTemplate(w, "layout.html", nil)
-	log.Println(t.entries.DefinedTemplates())
+func (t *TemplateMap) RenderTemplate(w http.ResponseWriter, route string, data any) error {
+	err := t.entries.ExecuteTemplate(w, route, data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		log.Println("Template execution error:", err)
 	}
 	return err
 }
-
-var T = NewTemplateMap()

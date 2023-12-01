@@ -1,20 +1,21 @@
-
+{{ define "header" }}
 <!DOCTYPE html>
 <html>
     <head>
         <script src="https://unpkg.com/htmx.org@1.9.8" integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/static/css/style.css"></link>
+        <link rel="stylesheet" href="/static/css/global.css"></link>
+        <link rel="stylesheet" href="/static/css/bulma.css"></link>
         <title>JR</title>
     </head>
     <body>
         <div class="container">
             <div hx-get="/components/nav" hx-trigger="load" hx-swap="outerHTML"></div>
-            {{ template "content" }}
-            {{ define "content" }}
-                <h1> There was a problem loading the content </h1>
             {{ end }}
+
+            {{ define "footer" }}
         </div>
     </body>
+    <footer></footer>
 </html>
-
+{{ end }}
 
