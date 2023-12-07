@@ -1,11 +1,12 @@
 package server
 
 import (
-	"adamastor/internal/server/router"
 	"log"
 	"net/http"
 	"os"
 	"time"
+
+	"adamastor/internal/server/router"
 )
 
 // TODO: need to come from config.
@@ -23,13 +24,8 @@ type Server struct {
 type LogFlags int
 
 const (
-	// LogInfo logs informational messages.
 	LogInfo LogFlags = 1 << iota
-
-	// LogWarning logs warning messages.
 	LogWarning
-
-	// LogError logs error messages.
 	LogError
 )
 
