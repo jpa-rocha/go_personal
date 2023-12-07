@@ -1,0 +1,13 @@
+// Set font
+$font-stack: Helvetica, sans-serif;
+
+
+// Set colors
+$background: aquamarine;
+$dark-background: darken($background, 20%);
+$light-background: lighten($background, 20%);
+$outlines:rebeccapurple;
+$font-color: $outlines;
+$dark-font-color: darken($font-color, 20%);
+$light-font-color: lighten($font-color, 20%);
+

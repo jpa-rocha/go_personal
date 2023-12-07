@@ -1,4 +1,17 @@
-body {
+a {
+  color: blue;
+}
+
+body, html {
+  margin: 0;
+  background-color: aquamarine;
+  padding: 0;
+  color: rebeccapurple;
+  font-family: Helvetica, sans-serif;
+  height: 100vh;
+}
+
+nav {
   background: aquamarine;
 }
 

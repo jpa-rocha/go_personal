@@ -1,16 +1,14 @@
-$background: aquamarine;
-$dark-background: darken($background, 20%);
-$light-background: lighten($background, 20%);
+@import 'variables';
+@import '../../routes/index/_index.scss';
 
-$outlines:rebeccapurple;
-
-$font-stack: Helvetica, sans-serif;
-$font-color: $outlines;
-$dark-font-color: darken($font-color, 20%);
-$light-font-color: lighten($font-color, 20%);
-
-$redButton: #E0301A;
-
-body {
+body, html {
+    margin: 0;
+    background-color: $background;
+    padding: 0;
+    color: $font-color;
+    font-family: $font-stack;
+    height: 100vh
+}
+nav {
     background: $background;
 }
