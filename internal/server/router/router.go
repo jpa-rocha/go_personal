@@ -4,6 +4,8 @@ import (
 	"io/fs"
 	"net/http"
 
+	"github.com/a-h/templ"
+
 	"adamastor/internal/server/endpoints"
 	"adamastor/internal/server/templates"
 	"adamastor/public"
@@ -49,6 +51,5 @@ func (r *Router) HandleRoutes() {
 	r.Mux.HandleFunc("/cv", r.Handler.HandleCV)
 
 	r.Mux.HandleFunc("/components/nav", r.Handler.HandleComponentNav)
-
-	r.Mux.HandleFunc("/", r.Handler.HandleIndex)
+	r.Mux.Handle("/", templ.Handler(templates.Layout(templates.Index())))
 }

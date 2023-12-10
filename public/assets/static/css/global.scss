@@ -1,14 +1,98 @@
 @import 'variables';
-@import '../../routes/index/_index.scss';
 
-body, html {
-    margin: 0;
-    background-color: $background;
-    padding: 0;
-    color: $font-color;
-    font-family: $font-stack;
-    height: 100vh
+
+* {
+    box-sizing: border-box;
 }
+
+body {
+    background-color: $primary;
+    display: flex;
+    flex-direction: column;
+    font-family: $font-stack;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
 nav {
-    background: $background;
+    display: flex;
+    width: 100%;
+    border-bottom: 1px, solid $secondary;
+}
+
+nav > .nav-section {
+    padding: 3rem 2rem;
+    display: flex;
+    gap: 1rem;
+    border-left: 1px solid $secondary;
+    align-items: center;
+    justify-items: center;
+}
+
+#nav-logo-section {
+    justify-content: flex-start;
+}
+
+#nav-logo-section > a > i {
+   font-size: 2.5rem; 
+}
+
+h1, h2, h3, a, p, span {
+    font-family: $font-stack;
+    font-weight: 400;
+    color: $secondary;
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    flex-grow: 1;
+    position: relative;
+}
+
+main > article {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    position: absolute;
+    transition: transform 400ms ease;
+    left: 0;
+    top: 0;
+}
+
+main > article[data-status="active"] {
+    transition-delay: 300ms;
+}
+
+main > article > .article-section {
+    height: 100%;
+}
+
+main > article[data-status="inactive"] {
+    transform: translateX(-100%);
+}
+
+main > article[data-status="to-be-active-right"] {
+    transform: translateX(100%);
+    transition: none;
+}
+
+
+main > article[data-status="to-be-active-left"] {
+    transform: translateX(-100%);
+    transition: none;
+}
+main > article > .article-description-section,
+
+main > article > .article-nav-section {
+    border-left: 1 solid $secondary;
+}
+
+main > article > .article-title-section,
+main > article > .article-nav-section {
+    border-top: 1 solid $secondary;
 }
