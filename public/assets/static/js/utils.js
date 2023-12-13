@@ -34,10 +34,10 @@ const handleLeftClick = () => {
   });
 }
 
-function hackText(element) {
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    document.getElementById(element.id).onmouseover = event => {
-        console.log("HI!")
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var elements = document.getElementsByClassName("article-title-section");
+for (var i = 0; i < elements.length; i++ ) {
+    elements[i].onmouseover = event => {
         let iterations = 0;
         const interval = setInterval(() => {
             event.target.innerText = event.target.innerText.split("").map((letter, index) => {
@@ -51,19 +51,3 @@ function hackText(element) {
         }, 30);
     }
 }
-
-// const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-// document.getElementsByClassName("article-title-section").onmouseover = event => {
-//     console.log("HI!")
-//     let iterations = 0;
-//     const interval = setInterval(() => {
-//         event.target.innerText = event.target.innerText.split("").map((letter, index) => {
-//             if (index < iterations) {
-//                 return event.target.dataset.value[index];
-//             }
-//             return letters[Math.floor(Math.random() * 26)];
-//         }).join("");
-//         if(iterations >= event.target.dataset.value.length) clearInterval(interval)
-//         iterations += 1 / 3;
-//     }, 30);
-// }
