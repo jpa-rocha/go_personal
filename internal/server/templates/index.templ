@@ -2,17 +2,17 @@ package templates
 
 templ Index() {
 	<main>
-		<article data-index="0" data-status="actice" class="article-group">
+		<article data-index="0" data-status="active" class="article-group">
 			<div class="article-splash-section article-section">
 				<h1>IMAGE</h1>
 			</div>
 			<div class="article-description-section article-section">
 				<p>DESCRIPTION</p>
 			</div>
-			<div class="article-title-section article-section">
+			<div class="article-title-section article-section" data-value="curriculum" id="curriculum" onmouseover="hackText(this)">
 				<h1>CURRICULUM</h1>
 			</div>
-			<div class="atricle-nav-section article-section">
+			<div class="article-nav-section article-section">
 				<button class="article-nav-button" type="button" onclick="handleLeftClick()">
 					<i class="fa-solid fa-solid fa-arrow-left-long"></i>
 				</button>
@@ -21,17 +21,17 @@ templ Index() {
 				</button>
 			</div>
 		</article>
-		<article data-index="1" data-status="inactice" class="article-group">
+		<article data-index="1" data-status="inactive" class="article-group">
 			<div class="article-splash-section article-section">
 				<h1>IMAGE</h1>
 			</div>
 			<div class="article-description-section article-section">
 				<p>DESCRIPTION</p>
 			</div>
-			<div class="article-title-section article-section">
+			<div class="article-title-section article-section" data-value="PROJECTS">
 				<h1>PROJECTS</h1>
 			</div>
-			<div class="atricle-nav-section article-section">
+			<div class="article-nav-section article-section">
 				<button class="article-nav-button" type="button" onclick="handleLeftClick()">
 					<i class="fa-solid fa-solid fa-arrow-left-long"></i>
 				</button>
@@ -40,17 +40,17 @@ templ Index() {
 				</button>
 			</div>
 		</article>
-		<article data-index="2" data-status="inactice" class="article-group">
+		<article data-index="2" data-status="inactive" class="article-group">
 			<div class="article-splash-section article-section">
 				<h1>IMAGE</h1>
 			</div>
 			<div class="article-description-section article-section">
 				<p>DESCRIPTION</p>
 			</div>
-			<div class="article-title-section article-section">
+			<div class="article-title-section article-section" data-value="ABOUT">
 				<h1>ABOUT</h1>
 			</div>
-			<div class="atricle-nav-section article-section">
+			<div class="article-nav-section article-section">
 				<button class="article-nav-button" type="button" onclick="handleLeftClick()">
 					<i class="fa-solid fa-solid fa-arrow-left-long"></i>
 				</button>
