@@ -41,7 +41,7 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"article-title-section article-section\" data-value=\"CURRICULUM\"><h1>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"article-title-section article-section\"><h1><span class=\"hack-text\" data-value=\"CURRICULUM\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -50,7 +50,7 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1></div><div class=\"article-nav-section article-section\"><button class=\"article-nav-button\" type=\"button\" onclick=\"handleLeftClick()\"><i class=\"fa-solid fa-solid fa-arrow-left-long\"></i></button> <button class=\"article-nav-button\" type=\"button\" onclick=\"handleRightClick()\"><i class=\"fa-solid fa-arrow-right-long\"></i></button></div></article><article data-index=\"1\" data-status=\"inactive\" class=\"article-group\"><div class=\"article-splash-section article-section\"><h1>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</span></h1></div><div class=\"article-nav-section article-section\"><button class=\"article-nav-button\" type=\"button\" onclick=\"handleLeftClick()\"><i class=\"fa-solid fa-solid fa-arrow-left-long\"></i></button> <button class=\"article-nav-button\" type=\"button\" onclick=\"handleRightClick()\"><i class=\"fa-solid fa-arrow-right-long\"></i></button></div></article><article data-index=\"1\" data-status=\"inactive\" class=\"article-group\"><div class=\"article-splash-section article-section\"><h1>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -68,7 +68,7 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"article-title-section article-section\" data-value=\"PROJECTS\"><h1>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"article-title-section article-section\"><h1><span class=\"hack-text\" data-value=\"PROJECTS\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -77,7 +77,7 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1></div><div class=\"article-nav-section article-section\"><button class=\"article-nav-button\" type=\"button\" onclick=\"handleLeftClick()\"><i class=\"fa-solid fa-solid fa-arrow-left-long\"></i></button> <button class=\"article-nav-button\" type=\"button\" onclick=\"handleRightClick()\"><i class=\"fa-solid fa-arrow-right-long\"></i></button></div></article><article data-index=\"2\" data-status=\"inactive\" class=\"article-group\"><div class=\"article-splash-section article-section\"><h1>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</span></h1></div><div class=\"article-nav-section article-section\"><button class=\"article-nav-button\" type=\"button\" onclick=\"handleLeftClick()\"><i class=\"fa-solid fa-solid fa-arrow-left-long\"></i></button> <button class=\"article-nav-button\" type=\"button\" onclick=\"handleRightClick()\"><i class=\"fa-solid fa-arrow-right-long\"></i></button></div></article><article data-index=\"2\" data-status=\"inactive\" class=\"article-group\"><div class=\"article-splash-section article-section\"><h1>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -95,7 +95,7 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"article-title-section article-section\" data-value=\"ABOUT\"><h1>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"article-title-section article-section\"><h1><span class=\"hack-text\" data-value=\"ABOUT\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -104,7 +104,7 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1></div><div class=\"article-nav-section article-section\"><button class=\"article-nav-button\" type=\"button\" onclick=\"handleLeftClick()\"><i class=\"fa-solid fa-solid fa-arrow-left-long\"></i></button> <button class=\"article-nav-button\" type=\"button\" onclick=\"handleRightClick()\"><i class=\"fa-solid fa-arrow-right-long\"></i></button></div></article></main>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</span></h1></div><div class=\"article-nav-section article-section\"><button class=\"article-nav-button\" type=\"button\" onclick=\"handleLeftClick()\"><i class=\"fa-solid fa-solid fa-arrow-left-long\"></i></button> <button class=\"article-nav-button\" type=\"button\" onclick=\"handleRightClick()\"><i class=\"fa-solid fa-arrow-right-long\"></i></button></div></article></main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
