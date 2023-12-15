@@ -10,6 +10,10 @@ import "context"
 import "io"
 import "bytes"
 
+import (
+	"adamastor/internal/server/components"
+)
+
 func Index() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -27,65 +31,19 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Article("0", "active", "CURRICULUM", []string{"Hi,", "I'm the description"}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Article("0", "active", "CURRICULUM", "/cv", []string{"Hi,", "I'm the description"}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<article data-index=\"1\" data-status=\"inactive\" class=\"article-group\"><div class=\"article-splash-section article-section\"><h1>")
+		templ_7745c5c3_Err = components.Article("1", "inactive", "PROJECTS", "/projects", []string{"Hi,", "I'm the description"}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Var2 := `IMAGE`
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var2)
+		templ_7745c5c3_Err = components.Article("2", "inactive", "ABOUT", "/about", []string{"Hi,", "I'm the description"}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1></div><div class=\"article-description-section article-section\"><p>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Var3 := `DESCRIPTION`
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var3)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"article-title-section article-section\"><h1><span class=\"hack-text\" data-value=\"PROJECTS\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Var4 := `PROJECTS`
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var4)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</span></h1></div><div class=\"article-nav-section article-section\"><button class=\"article-nav-button\" type=\"button\" onclick=\"handleLeftClick()\"><i class=\"fa-solid fa-solid fa-arrow-left-long\"></i></button> <button class=\"article-nav-button\" type=\"button\" onclick=\"handleRightClick()\"><i class=\"fa-solid fa-arrow-right-long\"></i></button></div></article><article data-index=\"2\" data-status=\"inactive\" class=\"article-group\"><div class=\"article-splash-section article-section\"><h1>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Var5 := `IMAGE`
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var5)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1></div><div class=\"article-description-section article-section\"><p>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Var6 := `DESCRIPTION`
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var6)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"article-title-section article-section\"><h1><span class=\"hack-text\" data-value=\"ABOUT\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Var7 := `ABOUT`
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var7)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</span></h1></div><div class=\"article-nav-section article-section\"><button class=\"article-nav-button\" type=\"button\" onclick=\"handleLeftClick()\"><i class=\"fa-solid fa-solid fa-arrow-left-long\"></i></button> <button class=\"article-nav-button\" type=\"button\" onclick=\"handleRightClick()\"><i class=\"fa-solid fa-arrow-right-long\"></i></button></div></article></main>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,45 +1,13 @@
 package templates
 
+import (
+	"adamastor/internal/server/components"
+)
+
 templ Index() {
 	<main>
-		@Article("0","active","CURRICULUM", []string{"Hi,", "I'm the description"})
-		<article data-index="1" data-status="inactive" class="article-group">
-			<div class="article-splash-section article-section">
-				<h1>IMAGE</h1>
-			</div>
-			<div class="article-description-section article-section">
-				<p>DESCRIPTION</p>
-			</div>
-			<div class="article-title-section article-section">
-				<h1><span class="hack-text" data-value="PROJECTS">PROJECTS</span></h1>
-			</div>
-			<div class="article-nav-section article-section">
-				<button class="article-nav-button" type="button" onclick="handleLeftClick()">
-					<i class="fa-solid fa-solid fa-arrow-left-long"></i>
-				</button>
-				<button class="article-nav-button" type="button" onclick="handleRightClick()">
-					<i class="fa-solid fa-arrow-right-long"></i>
-				</button>
-			</div>
-		</article>
-		<article data-index="2" data-status="inactive" class="article-group">
-			<div class="article-splash-section article-section">
-				<h1>IMAGE</h1>
-			</div>
-			<div class="article-description-section article-section">
-				<p>DESCRIPTION</p>
-			</div>
-			<div class="article-title-section article-section">
-				<h1><span class="hack-text" data-value="ABOUT">ABOUT</span></h1>
-			</div>
-			<div class="article-nav-section article-section">
-				<button class="article-nav-button" type="button" onclick="handleLeftClick()">
-					<i class="fa-solid fa-solid fa-arrow-left-long"></i>
-				</button>
-				<button class="article-nav-button" type="button" onclick="handleRightClick()">
-					<i class="fa-solid fa-arrow-right-long"></i>
-				</button>
-			</div>
-		</article>
+		@components.Article("0","active","CURRICULUM", "/cv",[]string{"Hi,", "I'm the description"})
+		@components.Article("1","inactive","PROJECTS", "/projects", []string{"Hi,", "I'm the description"})
+		@components.Article("2","inactive","ABOUT", "/about", []string{"Hi,", "I'm the description"})
 	</main>
 }

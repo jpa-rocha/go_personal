@@ -1,5 +1,7 @@
 package templates
 
+import "adamastor/internal/server/components"
+
 templ Layout(content templ.Component) {
 	<!DOCTYPE html>
 	<html>
@@ -13,7 +15,7 @@ templ Layout(content templ.Component) {
 		</head>
 		<body>
 			<div id="navbar">
-				@Navbar()
+				@components.Navbar()
 			</div>
 			@content
 		</body>
