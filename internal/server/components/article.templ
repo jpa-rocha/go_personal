@@ -1,18 +1,17 @@
-package templates
+package components
 
-templ Article(index, status, title string, description []string) {
+templ Article(index, status, title string, endpoint templ.SafeURL, description []string) {
 	<article data-index={ index } data-status={ status } class="article-group">
 		<div class="article-splash-section article-section">
 			<h1>IMAGE</h1>
 		</div>
 		<div class="article-description-section article-section">
-			<p>DESCRIPTION</p>
 			for _, item := range description {
 				<p>{ item }</p>
 			}
 		</div>
 		<div class="article-title-section article-section">
-			<h1><span class="hack-text" data-value={ title }>{ title }</span></h1>
+			<h1><a class="hack-text" data-value={ title } href={ endpoint }>{ title }</a></h1>
 		</div>
 		<div class="article-nav-section article-section">
 			<button class="article-nav-button" type="button" onclick="handleLeftClick()">
