@@ -1,0 +1,19 @@
+package components
+
+templ ArticleIndex(index, status, title string, endpoint templ.SafeURL, description []string) {
+	<article data-index={ index } data-status={ status } class="article-group">
+        @ArticleSplash()
+        @ArticleDescription(description)
+        @ArticleTitle(title, endpoint)
+        @ArticleNav()
+	</article>
+}
+
+templ ArticleCV(index, status, title string, endpoint templ.SafeURL, description []string) {
+	<article data-index={ index } data-status={ status } class="article-group">
+        @ArticleDescription(description)
+        @ArticleDescription(description)
+        @ArticleTitle(title, endpoint)
+        @ArticleNav()
+	</article>
+}

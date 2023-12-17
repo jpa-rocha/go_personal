@@ -1,0 +1,8 @@
+
+package components
+
+templ ArticleTitle(title string, endpoint templ.SafeURL) {
+	<div class="article-title-section article-section">
+		<h1><a class="hack-text" data-value={ title } href={ endpoint }>{ title }</a></h1>
+	</div>
+}

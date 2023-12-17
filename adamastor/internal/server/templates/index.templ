@@ -1,0 +1,13 @@
+package templates
+
+import (
+	"adamastor/internal/server/components"
+)
+
+templ Index() {
+	<main>
+		@components.ArticleIndex("0","active","CURRICULUM", "/cv",[]string{"Hi,", "I'm the description"})
+		@components.ArticleIndex("1","inactive","PROJECTS", "/projects", []string{"Hi,", "I'm the description"})
+		@components.ArticleIndex("2","inactive","ABOUT", "/about", []string{"Hi,", "I'm the description"})
+	</main>
+}

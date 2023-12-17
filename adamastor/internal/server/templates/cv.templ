@@ -1,0 +1,21 @@
+
+package templates
+
+import (
+	"adamastor/internal/server/components"
+	"fmt"
+)
+
+var jobs = []string{"wobcom", "sunhill"}
+
+templ CV() {
+	<main>
+		for i, position := range jobs {
+			if i > 0 {
+				@components.ArticleCV(fmt.Sprint(i), "inactive", position, "/cv",[]string{"Hi,", "I'm the description"})
+			} else {
+				@components.ArticleCV(fmt.Sprint(i), "active", position, "/cv",[]string{"Hi,", "I'm the description"})
+			}
+		}
+	</main>
+}

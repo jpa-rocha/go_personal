@@ -1,0 +1,10 @@
+
+package components
+
+templ ArticleDescription(description []string) {
+	<div class="article-description-section article-section">
+		for _, item := range description {
+			<p>{ item }</p>
+		}
+	</div>
+}
