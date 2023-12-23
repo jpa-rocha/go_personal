@@ -39,7 +39,7 @@ nav > .nav-section {
    font-size: 2.5rem; 
 }
 
-h1, h2, h3, a, p, span {
+h1, h2, h3, a, p, li, span {
     font-family: $font-stack;
     font-weight: 400;
     color: $secondary;
@@ -119,6 +119,12 @@ main > article > .article-description-section {
   // flex-direction: column;
   // justify-content: flex-end;
   padding: 2rem;
+}
+
+main > article > .article-description-section > ul > li {
+  color: $secondary;
+  font-size: 2em;
+  line-height: 2em;
 }
 
 main > article > .article-description-section > p {

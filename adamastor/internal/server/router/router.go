@@ -11,14 +11,14 @@ import (
 )
 
 type Router struct {
-	Mux     *http.ServeMux
-	Err     error
+	Mux *http.ServeMux
+	Err error
 }
 
 func NewRouter() *Router {
 	router := Router{
-		Mux:     http.NewServeMux(),
-		Err:     nil,
+		Mux: http.NewServeMux(),
+		Err: nil,
 	}
 	return &router
 }

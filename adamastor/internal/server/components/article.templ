@@ -1,19 +1,23 @@
 package components
 
+import (
+	"adamastor/internal/server/utilities"
+)
+
 templ ArticleIndex(index, status, title string, endpoint templ.SafeURL, description []string) {
 	<article data-index={ index } data-status={ status } class="article-group">
-        @ArticleSplash()
-        @ArticleDescription(description)
-        @ArticleTitle(title, endpoint)
-        @ArticleNav()
+		@ArticleSplash()
+		@ArticleDescription(description)
+		@ArticleTitle(title, endpoint)
+		@ArticleNav()
 	</article>
 }
 
-templ ArticleCV(index, status, title string, endpoint templ.SafeURL, description []string) {
+templ ArticleCV(index, status, title string, endpoint templ.SafeURL, position utilities.CVArticle) {
 	<article data-index={ index } data-status={ status } class="article-group">
-        @ArticleDescription(description)
-        @ArticleDescription(description)
-        @ArticleTitle(title, endpoint)
-        @ArticleNav()
+		@ArticleBody(position.Body)
+		@ArticleCVSlug(position)
+		@ArticleTitle(title, endpoint)
+		@ArticleNav()
 	</article>
 }

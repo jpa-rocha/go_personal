@@ -35,7 +35,7 @@ nav > .nav-section {
   font-size: 2.5rem;
 }
 
-h1, h2, h3, a, p, span {
+h1, h2, h3, a, p, li, span {
   font-family: "Space Mono", monospace;
   font-weight: 400;
   color: rebeccapurple;
@@ -112,6 +112,12 @@ main > article > .article-splash-section {
 
 main > article > .article-description-section {
   padding: 2rem;
+}
+
+main > article > .article-description-section > ul > li {
+  color: rebeccapurple;
+  font-size: 2em;
+  line-height: 2em;
 }
 
 main > article > .article-description-section > p {

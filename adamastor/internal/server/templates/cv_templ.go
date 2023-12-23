@@ -12,10 +12,11 @@ import "bytes"
 
 import (
 	"adamastor/internal/server/components"
+	"adamastor/internal/server/utilities"
 	"fmt"
 )
 
-var jobs = []string{"wobcom", "sunhill"}
+var exp = utilities.HandleCVArticles()
 
 func CV() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
@@ -34,14 +35,14 @@ func CV() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for i, position := range jobs {
+		for i, position := range exp {
 			if i > 0 {
-				templ_7745c5c3_Err = components.ArticleCV(fmt.Sprint(i), "inactive", position, "/cv", []string{"Hi,", "I'm the description"}).Render(ctx, templ_7745c5c3_Buffer)
+				templ_7745c5c3_Err = components.ArticleCV(fmt.Sprint(i), "inactive", position.Institution, "/cv", position).Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			} else {
-				templ_7745c5c3_Err = components.ArticleCV(fmt.Sprint(i), "active", position, "/cv", []string{"Hi,", "I'm the description"}).Render(ctx, templ_7745c5c3_Buffer)
+				templ_7745c5c3_Err = components.ArticleCV(fmt.Sprint(i), "active", position.Institution, "/cv", position).Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}

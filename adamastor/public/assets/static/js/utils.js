@@ -46,7 +46,7 @@ window.onload = function () {
                     if (index < iterations) {
                         return event.target.dataset.value[index];
                     }
-                    return letters[Math.floor(Math.random() * 26)];
+                    return letters[Math.floor(Math.random() * letters.length)];
                 }).join("");
                 if(iterations >= event.target.dataset.value.length) clearInterval(interval)
                 iterations += 1 / 3;

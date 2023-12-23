@@ -3,18 +3,19 @@ package templates
 
 import (
 	"adamastor/internal/server/components"
+	"adamastor/internal/server/utilities"
 	"fmt"
 )
 
-var jobs = []string{"wobcom", "sunhill"}
+var exp = utilities.HandleCVArticles()
 
 templ CV() {
 	<main>
-		for i, position := range jobs {
+		for i, position := range exp {
 			if i > 0 {
-				@components.ArticleCV(fmt.Sprint(i), "inactive", position, "/cv",[]string{"Hi,", "I'm the description"})
+				@components.ArticleCV(fmt.Sprint(i), "inactive", position.Institution, "/cv", position)
 			} else {
-				@components.ArticleCV(fmt.Sprint(i), "active", position, "/cv",[]string{"Hi,", "I'm the description"})
+				@components.ArticleCV(fmt.Sprint(i), "active", position.Institution, "/cv", position)
 			}
 		}
 	</main>

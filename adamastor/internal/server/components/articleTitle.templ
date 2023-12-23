@@ -1,8 +1,10 @@
 
 package components
 
+import "strings"
+
 templ ArticleTitle(title string, endpoint templ.SafeURL) {
 	<div class="article-title-section article-section">
-		<h1><a class="hack-text" data-value={ title } href={ endpoint }>{ title }</a></h1>
+		<h1><a class="hack-text" data-value={ strings.ToUpper(title) } href={ endpoint } hx-boost="true">{ strings.ToUpper(title) }</a></h1>
 	</div>
 }

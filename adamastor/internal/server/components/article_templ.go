@@ -10,6 +10,10 @@ import "context"
 import "io"
 import "bytes"
 
+import (
+	"adamastor/internal/server/utilities"
+)
+
 func ArticleIndex(index, status, title string, endpoint templ.SafeURL, description []string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -70,7 +74,7 @@ func ArticleIndex(index, status, title string, endpoint templ.SafeURL, descripti
 	})
 }
 
-func ArticleCV(index, status, title string, endpoint templ.SafeURL, description []string) templ.Component {
+func ArticleCV(index, status, title string, endpoint templ.SafeURL, position utilities.CVArticle) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -103,11 +107,11 @@ func ArticleCV(index, status, title string, endpoint templ.SafeURL, description 
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ArticleDescription(description).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ArticleBody(position.Body).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ArticleDescription(description).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ArticleCVSlug(position).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
