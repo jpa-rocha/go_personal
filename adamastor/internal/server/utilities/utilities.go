@@ -7,6 +7,8 @@ import (
 	"io"
 	"io/fs"
 	"log"
+	"slices"
+	"sort"
 	"strings"
 
 	"github.com/a-h/templ"
@@ -99,7 +101,7 @@ func fillArticle(scanner *bufio.Scanner) map[string]string {
 	var body string
 	for scanner.Scan() {
 		line := scanner.Text()
-		body += line
+		body += line + "\n"
 	}
 	headerConverter["body"] = body
 
@@ -107,8 +109,22 @@ func fillArticle(scanner *bufio.Scanner) map[string]string {
 }
 
 func Unsafe(html string) templ.Component {
-	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
-		_, err = io.WriteString(w, html)
-		return
+	return templ.ComponentFunc(func(_ context.Context, w io.Writer) error {
+		_, err := io.WriteString(w, html)
+		return err
 	})
+}
+
+func SplitExp(exp []CVArticle, occType string) []CVArticle {
+	ret := []CVArticle{}
+	for _, en := range exp {
+		if en.Type == occType {
+			ret = append(ret, en)
+		}
+	}
+	sort.Slice(ret, func(p, q int) bool {
+		return ret[p].StartDate < ret[q].StartDate
+	})
+    slices.Reverse(ret)
+	return ret
 }

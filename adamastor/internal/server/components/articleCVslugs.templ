@@ -7,6 +7,7 @@ import (
 templ ArticleCVSlug(description utilities.CVArticle) {
 	<div class="article-description-section article-section">
 		<ul>
+			<li><strong>Type: </strong> { description.Type } </li>
 			<li><strong>Position: </strong>{ description.Position }</li>
 			<li><strong>Started: </strong>{ description.StartDate }</li>
 			if description.EndDate == "" {

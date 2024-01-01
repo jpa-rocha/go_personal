@@ -8,10 +8,13 @@ import (
 )
 
 var exp = utilities.HandleCVArticles()
+var pro = utilities.SplitExp(exp, "Professional")
+var edu = utilities.SplitExp(exp, "Education")
+var final = append(pro, edu...)
 
 templ CV() {
 	<main>
-		for i, position := range exp {
+		for i, position := range final {
 			if i > 0 {
 				@components.ArticleCV(fmt.Sprint(i), "inactive", position.Institution, "/cv", position)
 			} else {

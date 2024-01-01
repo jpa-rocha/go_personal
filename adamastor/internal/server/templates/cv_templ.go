@@ -17,6 +17,9 @@ import (
 )
 
 var exp = utilities.HandleCVArticles()
+var pro = utilities.SplitExp(exp, "Professional")
+var edu = utilities.SplitExp(exp, "Education")
+var final = append(pro, edu...)
 
 func CV() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
@@ -35,7 +38,7 @@ func CV() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for i, position := range exp {
+		for i, position := range final {
 			if i > 0 {
 				templ_7745c5c3_Err = components.ArticleCV(fmt.Sprint(i), "inactive", position.Institution, "/cv", position).Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {

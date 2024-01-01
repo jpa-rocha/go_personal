@@ -110,14 +110,20 @@ main > article > .article-splash-section {
   background-size: cover;
 }
 
+main > article > .article-body-section {
+  display: block;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
 main > article > .article-description-section {
   padding: 2rem;
 }
 
 main > article > .article-description-section > ul > li {
   color: rebeccapurple;
-  font-size: 2em;
-  line-height: 2em;
+  font-size: 1.25em;
+  line-height: 1.25em;
 }
 
 main > article > .article-description-section > p {
