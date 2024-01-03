@@ -4,10 +4,26 @@ templ Navbar() {
 	<nav>
 		<div id="nav-logo-section" class="nav-section">
 			<a href="/">
-				<i class="fa-solid dumpster-fire"></i>
 				<p>João</p>
 			</a>
 		</div>
-		<div id="nav-contact-section" class="nav-section"></div>
+		<div id="nav-social-section" class="nav-section">
+			<a href="#">
+				<i class="fa-brands fa-twitter"></i>
+			</a>
+			<a href="https://www.youtube.com/c/Hyperplexed" target="_blank">
+				<i class="fa-brands fa-youtube"></i>
+			</a>
+			<a href="#">
+				<i class="fa-brands fa-codepen"></i>
+			</a>
+		</div>
+		<div id="nav-contact-section" class="nav-section">
+			<a href="#">GET IN TOUCH</a>
+		</div>
+		<button id="nav-toggle-button" type="button" onclick="handleNavToggle()">
+			<span>Menu</span>
+			<i class="fa-solid fa-bars"></i>
+		</button>
 	</nav>
 }
