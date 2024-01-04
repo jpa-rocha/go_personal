@@ -5,6 +5,6 @@ import "strings"
 
 templ ArticleTitle(title string, endpoint templ.SafeURL) {
 	<div class="article-title-section article-section">
-		<h1><a class="hack-text" data-value={ strings.ToUpper(title) } href={ endpoint }>{ strings.ToUpper(title) }</a></h1>
+		<h2><a class="hack-text" data-value={ strings.ToUpper(title) } href={ endpoint }>{ strings.ToUpper(title) }</a></h2>
 	</div>
 }
