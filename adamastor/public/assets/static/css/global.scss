@@ -26,18 +26,18 @@ nav .nav-section {
   padding: 3rem 2rem;
   display: flex;
   gap: 1rem;
-  border-left: 1px solid $secondary;
   align-items: center;
   justify-content: center;
 }
 
-#nav-social-section,
 #nav-contact-section {
-  flex-grow: 1;
+    flex-grow: 1;
+    gap: 3rem;
+    border-left: 1px solid $secondary;
 }
 
 #nav-logo-section {
-  flex-basis: calc(100% / 3);
+  flex-basis: calc(100% * (2/3));
   justify-content: flex-start;
 }
 

@@ -22,18 +22,18 @@ nav .nav-section {
   padding: 3rem 2rem;
   display: flex;
   gap: 1rem;
-  border-left: 1px solid rebeccapurple;
   align-items: center;
   justify-content: center;
 }
 
-#nav-social-section,
 #nav-contact-section {
   flex-grow: 1;
+  gap: 3rem;
+  border-left: 1px solid rebeccapurple;
 }
 
 #nav-logo-section {
-  flex-basis: 33.3333333333%;
+  flex-basis: 66.6666666667%;
   justify-content: flex-start;
 }
 
