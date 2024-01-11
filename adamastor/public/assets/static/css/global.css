@@ -128,7 +128,7 @@ main > article > .article-splash-section {
 main > article > .article-body-section {
   display: block;
   padding: 2rem;
-  font-size: 1.1rem;
+  font-size: 0.75rem;
 }
 
 main > article > .article-description-section {
@@ -158,7 +158,7 @@ main > article > .article-title-section {
 
 main > article > .article-title-section > h2 {
   flex-basis: 50%;
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   line-height: 3rem;
   margin: 0px;
 }

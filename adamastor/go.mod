@@ -3,7 +3,7 @@ module adamastor
 go 1.21.3
 
 require (
-	github.com/a-h/templ v0.2.476
+	github.com/a-h/templ v0.2.513
 	github.com/spf13/cobra v1.8.0
 	github.com/yuin/goldmark v1.6.0
 )

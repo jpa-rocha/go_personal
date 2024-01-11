@@ -130,10 +130,11 @@ main > article > .article-splash-section {
   background-size: cover;
 }
 
+//TODO: Article body adjustments
 main > article > .article-body-section {
     display: block;
     padding: 2rem;
-    font-size: 1.1rem;
+    font-size: 0.75rem;
 }
 
 main > article > .article-description-section {
@@ -161,9 +162,10 @@ main > article > .article-title-section {
   padding: 2rem 4rem;
 }
 
+//TODO: Title adjustments
 main > article > .article-title-section > h2 {
     flex-basis: 50%;
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     line-height: 3rem;
     margin: 0px;
 }
