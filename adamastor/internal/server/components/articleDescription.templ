@@ -1,9 +1,7 @@
 package components
 
-templ ArticleDescription(description []string) {
+templ ArticleDescription(description templ.Component) {
 	<div class="article-description-section article-section">
-		for _, item := range description {
-			<p>{ item }</p>
-		}
+		@description
 	</div>
 }

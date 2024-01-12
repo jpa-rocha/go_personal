@@ -1,8 +1,11 @@
 
 package components
 
-templ ArticleSplash() {
-    <div class="article-splash-section article-section">
-        <h1>IMAGE</h1>
-    </div>
+templ ArticleSplash(style string) {
+	<style type="text/css">
+            background-image: url("assests/static/content/images/topography.svg");
+    </style>
+	<div
+		class={ "article-splash-section article-section", style }
+	></div>
 }

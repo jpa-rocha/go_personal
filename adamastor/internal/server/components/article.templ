@@ -4,20 +4,20 @@ import (
 	"adamastor/internal/server/utilities"
 )
 
-templ ArticleIndex(index, status, title string, endpoint templ.SafeURL, description []string) {
+templ ArticleIndex(index, status, title, style string, description templ.Component) {
 	<article data-index={ index } data-status={ status } class="article-group">
-		@ArticleSplash()
+		@ArticleSplash(style)
 		@ArticleDescription(description)
-		@ArticleTitle(title, endpoint)
+		@ArticleTitle(title)
 		@ArticleNav()
 	</article>
 }
 
-templ ArticleCV(index, status, title string, endpoint templ.SafeURL, position utilities.CVArticle) {
+templ ArticleCV(index, status, title string, position utilities.CVArticle) {
 	<article data-index={ index } data-status={ status } class="article-group">
 		@ArticleBody(position.Body)
 		@ArticleCVSlug(position)
-		@ArticleTitle(title, endpoint)
+		@ArticleTitle(title)
 		@ArticleNav()
 	</article>
 }

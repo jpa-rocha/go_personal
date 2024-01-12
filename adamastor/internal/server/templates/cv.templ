@@ -16,9 +16,9 @@ templ CV() {
 	<main>
 		for i, position := range final {
 			if i > 0 {
-				@components.ArticleCV(fmt.Sprint(i), "inactive", position.Institution, "/cv", position)
+				@components.ArticleCV(fmt.Sprint(i), "inactive", position.Institution, position)
 			} else {
-				@components.ArticleCV(fmt.Sprint(i), "active", position.Institution, "/cv", position)
+				@components.ArticleCV(fmt.Sprint(i), "active", position.Institution, position)
 			}
 		}
 	</main>

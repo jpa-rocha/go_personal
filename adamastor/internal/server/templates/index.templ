@@ -2,12 +2,18 @@ package templates
 
 import (
 	"adamastor/internal/server/components"
+	"adamastor/internal/server/utilities"
 )
+
+var currDescription = utilities.MarkdownToComponent("assets/static/content/description/curriculum.md")
+var aboutDescription = utilities.MarkdownToComponent("assets/static/content/description/about.md")
+var projectsDescription = utilities.MarkdownToComponent("assets/static/content/description/projects.md")
+var currSplash = "assests/static/content/images/topography.svg"
 
 templ Index() {
 	<main>
-		@components.ArticleIndex("0","active","CURRICULUM", "/cv",[]string{"Hi,", "I'm the description go here <a href='/cv'>cv</a>"})
-		@components.ArticleIndex("1","inactive","PROJECTS", "/projects", []string{"Hi,", "I'm the description"})
-		@components.ArticleIndex("2","inactive","ABOUT", "/about", []string{"Hi,", "I'm the description"})
+		@components.ArticleIndex("0","active","CURRICULUM", "curriculum", currDescription)
+		@components.ArticleIndex("1","inactive","PROJECTS", "projects", projectsDescription)
+		@components.ArticleIndex("2","inactive","ABOUT", "about", aboutDescription)
 	</main>
 }
