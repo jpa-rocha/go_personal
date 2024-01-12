@@ -30,6 +30,7 @@ type CVArticle struct {
 }
 
 func HandleCVArticles() []CVArticle {
+    // TODO: should come from config
 	const base = "assets/static/content/cv"
 	content, err := fs.Sub(public.Assets, base)
 	if err != nil {
@@ -47,7 +48,7 @@ func HandleCVArticles() []CVArticle {
 		if file.IsDir() {
 			continue
 		}
-		fileContent, err := fs.ReadFile(content, file.Name())
+        fileContent, err := fs.ReadFile(content, file.Name())
 		if err != nil {
 			log.Fatalf("error reading file: %v", err)
 		}
@@ -55,7 +56,7 @@ func HandleCVArticles() []CVArticle {
 		scanner := bufio.NewScanner(bytes.NewReader(fileContent))
 		headerConverter := fillArticle(scanner)
 		var buf bytes.Buffer
-		if err := goldmark.Convert([]byte(headerConverter["body"]), &buf); err != nil {
+		if err = goldmark.Convert([]byte(headerConverter["body"]), &buf); err != nil {
 			log.Fatalf("failed to convert markdown to HTML: %v", err)
 		}
 		body := Unsafe(buf.String())
@@ -98,14 +99,19 @@ func fillArticle(scanner *bufio.Scanner) map[string]string {
 			headerConverter[split[0]] = strings.Trim(split[1], " ")
 		}
 	}
+	headerConverter["body"] = takeBody(scanner)
+
+	return headerConverter
+}
+
+func takeBody(scanner *bufio.Scanner) string {
 	var body string
 	for scanner.Scan() {
 		line := scanner.Text()
 		body += line + "\n"
 	}
-	headerConverter["body"] = body
 
-	return headerConverter
+    return body
 }
 
 func Unsafe(html string) templ.Component {
@@ -125,6 +131,23 @@ func SplitExp(exp []CVArticle, occType string) []CVArticle {
 	sort.Slice(ret, func(p, q int) bool {
 		return ret[p].StartDate < ret[q].StartDate
 	})
-    slices.Reverse(ret)
+	slices.Reverse(ret)
 	return ret
+}
+
+func MarkdownToComponent(path string) templ.Component {
+    var body templ.Component
+	fileContent, err := fs.ReadFile(public.Assets, path)
+	if err != nil {
+		log.Println(err)
+		return body
+	}
+    scanner := bufio.NewScanner(bytes.NewReader(fileContent))
+    bodyString := takeBody(scanner)
+    var buf bytes.Buffer
+    if err = goldmark.Convert([]byte(bodyString), &buf); err != nil {
+        log.Fatalf("failed to convert markdown to HTML: %v", err)
+    }
+    body = Unsafe(buf.String())
+	return body
 }
