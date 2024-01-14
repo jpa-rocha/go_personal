@@ -41,7 +41,7 @@ func Navbar() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><a href=\"https://www.linkedin.com/in/jo%C3%A3o-rocha-73968b173/\"><i class=\"fa-brands fa-linkedin\"></i></a></div></nav>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><a class=\"icon\" href=\"https://www.linkedin.com/in/jo%C3%A3o-rocha-73968b173/\"><i class=\"fa-brands fa-linkedin\"></i></a></div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

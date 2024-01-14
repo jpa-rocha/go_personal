@@ -134,7 +134,7 @@ main > article > .article-splash-section {
 main > article > .article-body-section {
     display: block;
     padding: 2rem;
-    font-size: 0.75rem;
+    // font-size: 0.75rem;
 }
 
 main > article > .article-description-section {
@@ -159,11 +159,11 @@ main > article > .article-description-section > p  > a:hover {
 //TODO: Title adjustments
 main > article > .article-title-section > h2 {
     flex-basis: auto;
-    font-size: 2rem;
+    // font-size: 2rem;
     // line-height: 2rem;
     align-items: center;
     justify-content: space-between;
-    padding: 3rem 4rem;
+    // padding: 3rem 4rem;
     // margin: 0px;
 }
 
@@ -173,7 +173,7 @@ main > article > .article-nav-section > .article-nav-button {
   border: none;
   outline: none;
   color: $secondary;
-  font-size: 2rem;
+  // font-size: 2rem;
   cursor: pointer;
 }
 
@@ -185,6 +185,23 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
   border-left: 1px solid $secondary;
 }
 
+.icon:hover{
+    color: $light-secondary;
+}
+
+@media only screen and (min-width: 64em) {
+    main > article > .article-title-section > h2 {
+        font-size: 3rem;
+        padding: 4rem 4rem;
+    }
+
+    main > article > .article-body-section {
+        font-size: 1rem;
+    }
+    main > article > .article-nav-section > .article-nav-button {
+      font-size: 3rem;
+    }
+}
 
 // Splash images
 .curriculum {
