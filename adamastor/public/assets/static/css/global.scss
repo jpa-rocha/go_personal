@@ -189,7 +189,36 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
     color: $light-secondary;
 }
 
+// Media Breakpoints
+@media only screen and (min-width: 48em) {
+    main > article > .article-title-section > h2 {
+        font-size: 2rem;
+        padding: 2rem 4rem;
+    }
+
+    main > article > .article-body-section {
+        font-size: 0.75rem;
+    }
+    main > article > .article-nav-section > .article-nav-button {
+      font-size: 2rem;
+    }
+}
+
 @media only screen and (min-width: 64em) {
+    main > article > .article-title-section > h2 {
+        font-size: 2rem;
+        padding: 2rem 4rem;
+    }
+
+    main > article > .article-body-section {
+        font-size: 0.75rem;
+    }
+    main > article > .article-nav-section > .article-nav-button {
+      font-size: 2rem;
+    }
+}
+
+@media only screen and (min-width: 80em) {
     main > article > .article-title-section > h2 {
         font-size: 3rem;
         padding: 4rem 4rem;

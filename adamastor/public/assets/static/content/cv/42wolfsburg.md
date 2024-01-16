@@ -9,7 +9,7 @@ position: Student
 type: Education
 ---
 
-I started my studies at 42 Wolfsburg, a programming school, as a way to add value to my skill set. The school is part of a larger **[42 Network](https://www.42network.org/)**, and is focused on peer-to-peer learning. The curriculum makes use of three programming languages, and has different projects, addressing different topics in increasing difficulty:  
+42 Wolfsburg is part of a larger **[42 Network](https://www.42network.org/)**, and is focused on peer-to-peer learning. The curriculum makes use of three programming languages, and has different projects, addressing different topics in increasing difficulty:  
 
 C:
 * Replications of basic built-in functions.
