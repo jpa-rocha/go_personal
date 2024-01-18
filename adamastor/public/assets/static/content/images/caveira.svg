@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="true"
-     inkscape:zoom="8"
-     inkscape:cx="23.3125"
-     inkscape:cy="33.3125"
+     inkscape:zoom="32"
+     inkscape:cx="28.515625"
+     inkscape:cy="46.921875"
      inkscape:window-width="1228"
      inkscape:window-height="731"
      inkscape:window-x="0"
@@ -51,7 +51,53 @@
        visible="true" />
   </sodipodi:namedview>
   <defs
-     id="defs1" />
+     id="defs1">
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect10"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect8"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8">
+      <path
+         d="m 69.335937,41.861328 -2.86914,10 2.849609,-1.513672 z"
+         style="display:none;fill:#a2b663"
+         id="path8" />
+      <path
+         id="lpe_path-effect8"
+         style="fill:#a2b663"
+         class="powerclip"
+         d="M 32.759766,-3.0078125 H 99.798828 V 72.982422 H 32.759766 Z m 38.664248,43.8525775 0.01899,8.486317 2.384154,-1.174078 z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath10">
+      <path
+         style="display:none;fill:#a2b663"
+         d="m 71.424014,40.844765 0.01899,8.486317 2.384154,-1.174078 z"
+         id="path10"
+         sodipodi:nodetypes="cccc" />
+      <path
+         id="lpe_path-effect10"
+         style="fill:#a2b663"
+         class="powerclip"
+         d="M 32.759766,-3.0078125 H 99.798828 V 72.982422 H 32.759766 Z m 38.664248,43.8525775 0.01899,8.486317 2.384154,-1.174078 z" />
+    </clipPath>
+  </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -154,10 +200,12 @@
            id="path12" />
       </g>
       <path
-         d="M 94.798828,1.9921875 37.857422,31.171875 37.7598,64.474609 45.039096,60.933594 45.007846,67.982422 90.019531,43.740234 90,37.480469 94.787109,34.833984 Z m -13.498047,18.0214845 3.832031,1.83789 -2.894531,6.033204 6.4375,3.03125 -1.8125,3.845703 -6.46289,-3.044922 -3.126954,6.519531 -3.832031,-1.837891 3.113281,-6.492187 -6.130859,-2.886719 1.808594,-3.845703 6.160156,2.900391 z m -25.40039,12.732422 3.832031,1.83789 -2.894531,6.033203 6.4375,3.03125 -1.8125,3.845704 L 55,44.449219 l -3.126953,6.519531 -3.832031,-1.837891 3.113281,-6.490234 -6.132813,-2.888672 1.810547,-3.845703 6.160156,2.902344 z"
-         style="fill:#75adbc;fill-opacity:1"
-         id="path21"
-         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccc" />
+         id="path4"
+         style="fill:#75adbc"
+         d="M 94.798828,1.9921875 37.857422,31.171875 37.759766,64.474609 45.039062,60.933594 45.007812,67.982422 90.019531,43.740234 90,37.480469 94.787109,34.833984 Z m -13.498047,18.0214845 3.832031,1.83789 -2.894531,6.033204 6.4375,3.03125 -1.8125,3.845703 -6.46289,-3.044922 -3.126954,6.519531 -3.832031,-1.83789 3.113281,-6.492188 -6.130859,-2.886719 1.808594,-3.845703 6.160156,2.900391 z m -25.40039,12.732422 3.832031,1.83789 -2.894531,6.033204 6.4375,3.03125 -1.8125,3.845703 L 55,44.449219 l -3.126953,6.519531 -3.832031,-1.837891 3.113281,-6.490234 -6.132813,-2.888672 1.810547,-3.845703 6.160156,2.902344 z m 13.435546,9.115234 -0.01953,8.486328 -2.849609,1.513672 z"
+         clip-path="url(#clipPath10)"
+         inkscape:path-effect="#path-effect8;#path-effect10"
+         inkscape:original-d="M 94.798828 1.9921875 L 37.857422 31.171875 L 37.759766 64.474609 L 45.039062 60.933594 L 45.007812 67.982422 L 90.019531 43.740234 L 90 37.480469 L 94.787109 34.833984 L 94.798828 1.9921875 z M 81.300781 20.013672 L 85.132812 21.851562 L 82.238281 27.884766 L 88.675781 30.916016 L 86.863281 34.761719 L 80.400391 31.716797 L 77.273437 38.236328 L 73.441406 36.398438 L 76.554687 29.90625 L 70.423828 27.019531 L 72.232422 23.173828 L 78.392578 26.074219 L 81.300781 20.013672 z M 55.900391 32.746094 L 59.732422 34.583984 L 56.837891 40.617188 L 63.275391 43.648438 L 61.462891 47.494141 L 55 44.449219 L 51.873047 50.96875 L 48.041016 49.130859 L 51.154297 42.640625 L 45.021484 39.751953 L 46.832031 35.90625 L 52.992187 38.808594 L 55.900391 32.746094 z M 69.335937 41.861328 L 69.316406 50.347656 L 66.466797 51.861328 L 69.335937 41.861328 z " />
       <path
          style="fill:#75adbc;fill-opacity:1"
          d="m 49.975341,100.27363 40.548232,-22.990867 -0.0918,7.821289 -40.635234,22.480308 z"
