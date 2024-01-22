@@ -135,19 +135,53 @@ func SplitExp(exp []CVArticle, occType string) []CVArticle {
 	return ret
 }
 
-func MarkdownToComponent(path string) templ.Component {
+func HandleFolderToComponent(path string) []templ.Component {
+	content, err := fs.Sub(public.Assets, path)
+	if err != nil {
+		log.Println(err)
+		return []templ.Component{}
+	}
+
+	files, err := fs.ReadDir(content, ".")
+	if err != nil {
+		log.Println(err)
+		return []templ.Component{}
+	}
+	components := []templ.Component{}
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+        fileContent, err := fs.ReadFile(content, file.Name())
+        if err != nil {
+            log.Println(err)
+            return []templ.Component{}
+        }
+        components = append(components, MarkdownToComponent(fileContent))
+    }
+    return components
+}
+
+func MarkdownToComponent(fileContent []byte) templ.Component {
+    var body templ.Component
+    scanner := bufio.NewScanner(bytes.NewReader(fileContent))
+    bodyString := takeBody(scanner)
+    var buf bytes.Buffer
+    if err := goldmark.Convert([]byte(bodyString), &buf); err != nil {
+        log.Fatalf("failed to convert markdown to HTML: %v", err)
+    }
+    body = Unsafe(buf.String())
+	return body
+}
+
+func SingleMarkdownToComponent(path string) templ.Component {
     var body templ.Component
 	fileContent, err := fs.ReadFile(public.Assets, path)
 	if err != nil {
 		log.Println(err)
 		return body
 	}
-    scanner := bufio.NewScanner(bytes.NewReader(fileContent))
-    bodyString := takeBody(scanner)
-    var buf bytes.Buffer
-    if err = goldmark.Convert([]byte(bodyString), &buf); err != nil {
-        log.Fatalf("failed to convert markdown to HTML: %v", err)
-    }
-    body = Unsafe(buf.String())
-	return body
+    body = MarkdownToComponent(fileContent)
+    return body
 }
+

@@ -15,10 +15,9 @@ import (
 	"adamastor/internal/server/utilities"
 )
 
-var currDescription = utilities.MarkdownToComponent("assets/static/content/description/curriculum.md")
-var aboutDescription = utilities.MarkdownToComponent("assets/static/content/description/about.md")
-var projectsDescription = utilities.MarkdownToComponent("assets/static/content/description/projects.md")
-var currSplash = "assests/static/content/images/topography.svg"
+var currDescription = utilities.SingleMarkdownToComponent("assets/static/content/description/curriculum.md")
+var aboutDescription = utilities.SingleMarkdownToComponent("assets/static/content/description/about.md")
+var projectsDescription = utilities.SingleMarkdownToComponent("assets/static/content/description/projects.md")
 
 func Index() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
@@ -37,15 +36,15 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.ArticleIndex("0", "active", "CURRICULUM", "curriculum", currDescription).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.ArticleIndex("0", "active", "CURRICULUM", currDescription).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.ArticleIndex("1", "inactive", "PROJECTS", "projects", projectsDescription).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.ArticleIndex("1", "inactive", "PROJECTS", projectsDescription).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.ArticleIndex("2", "inactive", "ABOUT", "about", aboutDescription).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.ArticleIndex("2", "inactive", "ABOUT", aboutDescription).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
