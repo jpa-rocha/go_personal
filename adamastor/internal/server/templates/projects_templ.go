@@ -12,11 +12,7 @@ import "bytes"
 
 import (
 	"adamastor/internal/server/components"
-	"adamastor/internal/server/utilities"
-	"fmt"
 )
-
-var descriptions = utilities.HandleFolderToComponent("assets/static/content/projects/")
 
 func Project() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
@@ -35,18 +31,9 @@ func Project() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for i, description := range descriptions {
-			if i > 0 {
-				templ_7745c5c3_Err = components.ArticleProject(fmt.Sprint(i), "inactive", description).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-			} else {
-				templ_7745c5c3_Err = components.ArticleProject(fmt.Sprint(i), "active", description).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-			}
+		templ_7745c5c3_Err = components.ArticleProjects().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</main>")
 		if templ_7745c5c3_Err != nil {

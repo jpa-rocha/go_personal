@@ -4,9 +4,9 @@ import (
 	"adamastor/internal/server/utilities"
 )
 
-templ ArticleIndex(index, status, title string, description templ.Component) {
+templ ArticleIndex(index, status, title, style string, description templ.Component) {
 	<article data-index={ index } data-status={ status } class="article-group">
-		@ArticleSplash()
+		@ArticleSplash(style)
 		@ArticleDescription(description)
 		@ArticleTitle(title)
 		@ArticleNav()
@@ -24,8 +24,6 @@ templ ArticleCV(index, status, title string, position utilities.CVArticle) {
 
 templ ArticleProject(index, status, title string, description templ.Component) {
 	<article data-index={ index } data-status={ status } class="article-group">
-		@ArticleBody(description)
-		@ArticleTitle(title)
-		@ArticleNav()
+		@ArticleProjects()
 	</article>
 }

@@ -3,20 +3,10 @@ package templates
 
 import (
 	"adamastor/internal/server/components"
-	"adamastor/internal/server/utilities"
-	"fmt"
 )
-
-var descriptions = utilities.HandleFolderToComponent("assets/static/content/projects/")
 
 templ Project() {
 	<main>
-		for i, description := range descriptions {
-			if i > 0 {
-				@components.ArticleProject(fmt.Sprint(i), "inactive", description)
-			} else {
-				@components.ArticleProject(fmt.Sprint(i), "active", description)
-			}
-		}
+		@components.ArticleProjects()
 	</main>
 }

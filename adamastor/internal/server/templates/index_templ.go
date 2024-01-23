@@ -36,15 +36,15 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.ArticleIndex("0", "active", "CURRICULUM", currDescription).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.ArticleIndex("0", "active", "CURRICULUM", "curriculum", currDescription).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.ArticleIndex("1", "inactive", "PROJECTS", projectsDescription).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.ArticleIndex("1", "inactive", "PROJECTS", "projects", projectsDescription).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.ArticleIndex("2", "inactive", "ABOUT", aboutDescription).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.ArticleIndex("2", "inactive", "ABOUT", "about", aboutDescription).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
