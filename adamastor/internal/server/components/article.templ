@@ -24,6 +24,6 @@ templ ArticleCV(index, status, title string, position utilities.CVArticle) {
 
 templ ArticleProject(index, status, title string, description templ.Component) {
 	<article data-index={ index } data-status={ status } class="article-group">
-		@ArticleProjects()
+		@ArticleProjectsBody()
 	</article>
 }

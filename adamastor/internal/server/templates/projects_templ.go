@@ -31,7 +31,7 @@ func Project() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.ArticleProjects().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.ArticleProjectsBody().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
