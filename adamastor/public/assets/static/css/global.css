@@ -182,12 +182,17 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
 }
 
 .calculator {
+  display: grid;
   border-left: 1px solid rebeccapurple;
   border-right: 1px solid rebeccapurple;
   height: 100%;
   width: 50%;
   margin: auto;
   background: aquamarine;
+}
+
+.selector {
+  width: 10px;
 }
 
 @media only screen and (min-width: 48em) {

@@ -189,12 +189,17 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
 }
 
 .calculator {
+    display: grid;
     border-left: 1px solid $secondary;
     border-right: 1px solid $secondary;
     height: 100%;
     width: 50%;
     margin: auto;
     background: $primary;
+}
+
+.selector {
+    width: 10px;
 }
 
 // Media Breakpoints

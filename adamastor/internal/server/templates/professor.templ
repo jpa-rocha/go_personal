@@ -5,7 +5,26 @@ import ()
 templ Professor() {
 	<div class="professor full-background">
 		<div class="calculator">
-			Little Professor
+			<p class="calculator-title">Little Professor</p>
+			<form class="calculator-form">
+				<select name="selector level">
+					<option value="">--level--</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+				<select name="selector operations">
+					<option value="">--operation--</option>
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
+					<option value="R">R</option>
+				</select>
+				<button type="submit">Start</button>
+			</form>
 		</div>
 	</div>
 }
