@@ -47,7 +47,9 @@ func (r *Router) HandleRoutes() {
 
 	r.Mux.Handle("/cv", templ.Handler(templates.Layout(templates.CV())))
 	r.Mux.Handle("/projects", templ.Handler(templates.Layout(templates.Project())))
+    
 	r.Mux.Handle("/littleprofessor", templ.Handler(templates.Professor()))
+    r.Mux.Handle("/start_professor", templ.Handler())
     
 	r.Mux.Handle("/", templ.Handler(templates.Layout(templates.Index())))
 }

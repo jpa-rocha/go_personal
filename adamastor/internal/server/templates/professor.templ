@@ -1,12 +1,10 @@
 package templates
 
-import ()
-
 templ Professor() {
 	<div class="professor full-background">
 		<div class="calculator">
 			<p class="calculator-title">Little Professor</p>
-			<form class="calculator-form">
+			<form id="calculator-form" action="/start_professor" method="POST" hx-post="/" hx-select="#calculator-form" hx-swap="outerHTML">
 				<select name="selector level">
 					<option value="">--level--</option>
 					<option value="1">1</option>
@@ -23,8 +21,14 @@ templ Professor() {
 					<option value="/">/</option>
 					<option value="R">R</option>
 				</select>
-				<button type="submit">Start</button>
+				<button type="submit" type="submit">Start</button>
 			</form>
 		</div>
+	</div>
+}
+
+templ StartProfessor() {
+	<div>
+		Hi
 	</div>
 }
