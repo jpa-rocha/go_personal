@@ -4,7 +4,13 @@ templ Professor() {
 	<div class="professor full-background">
 		<div class="calculator">
 			<p class="calculator-title">Little Professor</p>
-			<form id="calculator-form" action="/start_professor" method="POST" hx-post="/" hx-select="#calculator-form" hx-swap="outerHTML">
+			<form
+ 				id="calculator-form"
+ 				method="POST"
+ 				hx-post="/start_professor"
+ 				hx-select="#calculator-form"
+ 				hx-swap="outerHTML"
+			>
 				<select name="selector level">
 					<option value="">--level--</option>
 					<option value="1">1</option>
@@ -28,7 +34,7 @@ templ Professor() {
 }
 
 templ StartProfessor() {
-	<div>
+	<div id="game">
 		Hi
 	</div>
 }

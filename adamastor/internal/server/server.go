@@ -43,7 +43,7 @@ func NewServer() *Server {
 		Err:    nil,
 		Router: router.NewRouter(),
 	}
-	server.Router.HandleRoutes()
+    server.Router.HandleRoutes()
 	server.Config.Handler = server.Router.Mux
 	return &server
 }

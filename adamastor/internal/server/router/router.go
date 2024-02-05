@@ -2,6 +2,7 @@ package router
 
 import (
 	"io/fs"
+	"log"
 	"net/http"
 
 	"github.com/a-h/templ"
@@ -44,12 +45,17 @@ func (r *Router) SetStaticPaths() {
 
 func (r *Router) HandleRoutes() {
 	r.SetStaticPaths()
-
 	r.Mux.Handle("/cv", templ.Handler(templates.Layout(templates.CV())))
 	r.Mux.Handle("/projects", templ.Handler(templates.Layout(templates.Project())))
-    
+
 	r.Mux.Handle("/littleprofessor", templ.Handler(templates.Professor()))
-    r.Mux.Handle("/start_professor", templ.Handler())
     
+    r.Mux.HandleFunc("start_professor", startProfessor)
 	r.Mux.Handle("/", templ.Handler(templates.Layout(templates.Index())))
+}
+
+func startProfessor(w http.ResponseWriter, r *http.Request) {
+    r.ParseForm()
+    log.Println("hello")
+    log.Println(r)
 }
