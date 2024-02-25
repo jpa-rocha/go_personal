@@ -27,10 +27,7 @@ func NewRouter() *Router {
 func (r *Router) SetStaticPaths() {
 	static := []string{
 		"/static/",
-		"/components/",
-		"/routes/",
-		"/templates",
-	} // TODO: should be in config.
+	}
 
 	const base = "assets"
 	staticFS, err := fs.Sub(public.Assets, base)
@@ -49,13 +46,14 @@ func (r *Router) HandleRoutes() {
 	r.Mux.Handle("/projects", templ.Handler(templates.Layout(templates.Project())))
 
 	r.Mux.Handle("/littleprofessor", templ.Handler(templates.Professor()))
-    
-    r.Mux.HandleFunc("start_professor", startProfessor)
+
+	r.Mux.HandleFunc("/start_professor", startProfessor)
 	r.Mux.Handle("/", templ.Handler(templates.Layout(templates.Index())))
 }
 
 func startProfessor(w http.ResponseWriter, r *http.Request) {
-    r.ParseForm()
-    log.Println("hello")
-    log.Println(r)
+	r.ParseForm()
+	log.Println("hello")
+	log.Println(r)
+
 }
