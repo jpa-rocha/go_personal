@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/a-h/templ"
+	// "github.com/a-h/templ"
 
 	"adamastor/internal/server/templates"
 	"adamastor/public"
@@ -42,18 +42,34 @@ func (r *Router) SetStaticPaths() {
 
 func (r *Router) HandleRoutes() {
 	r.SetStaticPaths()
-	r.Mux.Handle("/cv", templ.Handler(templates.Layout(templates.CV())))
-	r.Mux.Handle("/projects", templ.Handler(templates.Layout(templates.Project())))
-
-	r.Mux.Handle("/littleprofessor", templ.Handler(templates.Professor()))
-
+	r.Mux.HandleFunc("/cv", HandleCV)
+	r.Mux.HandleFunc("/projects", HandleProjects)
+	r.Mux.HandleFunc("/littleprofessor", HandleLittleProfessor)
 	r.Mux.HandleFunc("/start_professor", startProfessor)
-	r.Mux.Handle("/", templ.Handler(templates.Layout(templates.Index())))
+	r.Mux.HandleFunc("/", HandleIndex)
+}
+
+func HandleCV(w http.ResponseWriter, r *http.Request) {
+    templates.Layout(templates.CV()).Render(r.Context(), w)
+}
+
+func HandleProjects(w http.ResponseWriter, r *http.Request) {
+    templates.Layout(templates.Project()).Render(r.Context(), w)
+}
+
+func HandleLittleProfessor(w http.ResponseWriter, r *http.Request) {
+    templates.Professor().Render(r.Context(), w)
 }
 
 func startProfessor(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
+    // decoder := form
 	log.Println("hello")
 	log.Println(r)
 
+    templates.StartProfessor().Render(r.Context(), w)
+}
+
+func HandleIndex(w http.ResponseWriter, r *http.Request) {
+    templates.Layout(templates.Index()).Render(r.Context(), w)
 }

@@ -5,11 +5,12 @@ templ Professor() {
 		<div class="calculator">
 			<p class="calculator-title">Little Professor</p>
 			<form
- 				id="calculator-form"
- 				method="POST"
- 				hx-post="/start_professor"
- 				hx-select="#calculator-form"
- 				hx-swap="outerHTML"
+				id="calculator-form"
+				method="GET"
+				hx-post="/start_professor"
+				hx-select="#calculator-form"
+				hx-swap="outerHTML"
+				hx-target="#calculator-form"
 			>
 				<select name="selector level">
 					<option value="">--level--</option>
