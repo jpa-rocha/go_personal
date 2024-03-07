@@ -4,14 +4,7 @@ templ Professor() {
 	<div class="professor full-background">
 		<div class="calculator">
 			<p class="calculator-title">Little Professor</p>
-			<form
-				id="calculator-form"
-				method="GET"
-				hx-post="/start_professor"
-				hx-select="#calculator-form"
-				hx-swap="outerHTML"
-				hx-target="#calculator-form"
-			>
+			<form id="calculator-form" hx-get="/start_professor" hx-target="#calculator-form" hx-swap="outerHTML">
 				<select name="selector level">
 					<option value="">--level--</option>
 					<option value="1">1</option>

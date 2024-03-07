@@ -32,7 +32,7 @@ FROM build
 
 WORKDIR /adamastor/
 ENV PATH=$PATH:$WORKDIR
-# COPY adamastor/ .
+COPY adamastor/ .
 RUN go get -u github.com/a-h/templ
 RUN go mod vendor && go mod tidy
 
