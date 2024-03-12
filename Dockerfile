@@ -32,8 +32,9 @@ FROM build
 
 WORKDIR /adamastor/
 ENV PATH=$PATH:$WORKDIR
-COPY adamastor/ .
-RUN go get -u github.com/a-h/templ
+# COPY adamastor/ .
+RUN go get -u github.com/a-h/templ &&\
+    go get github.com/go-playground/form/v4
 RUN go mod vendor && go mod tidy
 
 CMD [ "./run_server.sh" ]

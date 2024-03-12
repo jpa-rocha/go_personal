@@ -5,10 +5,11 @@ import (
 	"log"
 	"net/http"
 
-	// "github.com/a-h/templ"
-
 	"adamastor/internal/server/templates"
+	"adamastor/internal/server/utilities"
 	"adamastor/public"
+
+	"github.com/go-playground/form/v4"
 )
 
 type Router struct {
@@ -49,6 +50,8 @@ func (r *Router) HandleRoutes() {
 	r.Mux.HandleFunc("/", HandleIndex)
 }
 
+//TODO: Check templ Render error and display 500 in case of error
+
 func HandleCV(w http.ResponseWriter, r *http.Request) {
     templates.Layout(templates.CV()).Render(r.Context(), w)
 }
@@ -66,7 +69,19 @@ func startProfessor(w http.ResponseWriter, r *http.Request) {
     // decoder := form
 	log.Println("hello")
 	log.Println(r)
+    decoder := form.NewDecoder()
 
+	// this simulates the results of http.Request's ParseForm() function
+
+	var game utilities.Game
+
+	// must pass a pointer
+	err := decoder.Decode(&game, r.Form)
+	if err != nil {
+		log.Panic(err)
+	}
+
+	log.Printf("%#v\n", game)
     templates.StartProfessor().Render(r.Context(), w)
 }
 

@@ -4,19 +4,19 @@ import "time"
 
 
 type Game struct {
-	numRounds  int
-	level      int
-	win        int
-	loss       int
-	result     int
-	answer     int
-	round      []int
-	op         string
-	operations []string
-	roundStart time.Time
-	roundTime  time.Duration
-	totalTime  time.Duration
-	err        error
+	NumRounds  int
+	Level      int
+	Win        int
+	Loss       int
+	Result     int
+	Answer     int
+	Round      []int
+	Op         string
+	Operations []string
+	RoundStart time.Time
+	RoundTime  time.Duration
+	TotalTime  time.Duration
+	Err        error
 }
 
 

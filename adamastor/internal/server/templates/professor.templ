@@ -5,7 +5,7 @@ templ Professor() {
 		<div class="calculator">
 			<p class="calculator-title">Little Professor</p>
 			<form id="calculator-form" hx-get="/start_professor" hx-target="#calculator-form" hx-swap="outerHTML">
-				<select name="selector level">
+				<select name="Level">
 					<option value="">--level--</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -13,7 +13,7 @@ templ Professor() {
 					<option value="4">4</option>
 					<option value="5">5</option>
 				</select>
-				<select name="selector operations">
+				<select name="Op">
 					<option value="">--operation--</option>
 					<option value="+">+</option>
 					<option value="-">-</option>
