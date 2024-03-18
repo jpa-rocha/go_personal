@@ -1,11 +1,12 @@
 module adamastor
 
-go 1.21.3
+go 1.22.0
 
 require (
-	github.com/a-h/templ v0.2.513
+	github.com/a-h/templ v0.2.598
+	github.com/go-playground/form/v4 v4.2.1
 	github.com/spf13/cobra v1.8.0
-	github.com/yuin/goldmark v1.6.0
+	github.com/yuin/goldmark v1.7.0
 )
 
 require (

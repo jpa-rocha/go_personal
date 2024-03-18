@@ -1,6 +1,6 @@
 FROM debian:stable as build
 
-ENV GOLANG_VERSION  1.21.5
+ENV GOLANG_VERSION  1.22.0
 ENV SASS_VERSION 1.69.5 
 ENV CERTS=/usr/local/share/ca-certificates
 
@@ -28,13 +28,19 @@ RUN go install github.com/a-h/templ/cmd/templ@latest
 ENV PATH=$PATH:/dart-sass
 ENV PATH=$PATH:/root/go/bin
 
+
 FROM build
 
-WORKDIR /adamastor/
+WORKDIR /adamastor
+RUN go mod init adamastor
+
+RUN go get github.com/a-h/templ &&\
+    go get github.com/go-playground/form &&\
+    go get github.com/spf13/cobra &&\
+    go get github.com/yuin/goldmark
+RUN go mod tidy && go mod vendor
 ENV PATH=$PATH:$WORKDIR
 # COPY adamastor/ .
-RUN go get -u github.com/a-h/templ &&\
-    go get github.com/go-playground/form/v4
-RUN go mod vendor && go mod tidy
 
 CMD [ "./run_server.sh" ]
+# CMD [ "sleep", "1d" ]

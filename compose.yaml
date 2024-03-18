@@ -1,9 +1,9 @@
+version: '3'
+
 services:
   adamastor:
     build: .
     ports:
       - "8000:8000"
     volumes:
-      - type: bind
-        source: ${PWD}/adamastor/
-        target: /adamastor
+      - "${PWD}/adamastor/:/adamastor"
