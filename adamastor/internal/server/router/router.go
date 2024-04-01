@@ -8,8 +8,6 @@ import (
 	"adamastor/internal/server/templates"
 	"adamastor/internal/server/utilities"
 	"adamastor/public"
-
-	"github.com/go-playground/form/v4"
 )
 
 type Router struct {
@@ -66,45 +64,28 @@ func HandleLittleProfessor(w http.ResponseWriter, r *http.Request) {
 }
 
 func startProfessor(w http.ResponseWriter, r *http.Request) {
-    err := r.ParseForm()
-    if err != nil {
-        log.Panic(err)
-    }
-    decoder := form.NewDecoder()
-
-	var game utilities.Game
-
-	err = decoder.Decode(&game, r.Form)
-	if err != nil {
-		log.Panic(err)
-	}
-
-	game.Operations = []string{"+", "-", "*", "/"}
+    game := utilities.Game{}
+    game.PrepareRound(r)
     game.MakeRound()
     templates.StartProfessor(game).Render(r.Context(), w)
 }
 
 func playRound(w http.ResponseWriter, r *http.Request) {
-    err := r.ParseForm()
-    if err != nil {
-        log.Panic(err)
-    }
-    decoder := form.NewDecoder()
-
-	var game utilities.Game
-
-	err = decoder.Decode(&game, r.Form)
-	if err != nil {
-		log.Panic(err)
-	}
+    game := utilities.Game{}
+    game.PrepareRound(r)
     if game.Answer == game.Result {
         game.Win += 1
     } else {
         game.Loss += 1
     }
     game.NumRounds -= 1
-    log.Println(game)
+    log.Println(game.NumRounds)
+    if game.NumRounds == 0 {
+        templates.ShowResults(game).Render(r.Context(), w)
+        return
+    }
     game.MakeRound()
+    log.Println(game)
     templates.PlayRound(game).Render(r.Context(), w)
 }
 

@@ -47,3 +47,11 @@ templ StartProfessor(game utilities.Game) {
 templ PlayRound(game utilities.Game) {
 	@components.ProfessorRound(game)
 }
+
+templ ShowResults(game utilities.Game) {
+	if game.Win > game.Loss {
+		<p>You Won!</p>
+	} else {
+		<p>You Lost!</p>
+	}
+}

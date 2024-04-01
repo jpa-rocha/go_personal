@@ -1,7 +1,11 @@
 package utilities
 
 import (
+	"log"
 	"math/rand"
+	"net/http"
+
+	"github.com/go-playground/form/v4"
 )
 
 const (
@@ -26,36 +30,15 @@ type Game struct {
 	Operations []string
 	Err        error
 }
+
 func (g *Game) MakeRound() {
     if g.Op == "R" {
-        g.Op == g.Operations[rand.Intn(3)]
+        g.Op = g.Operations[rand.Intn(3)]
     }
     g.numGenerator()
     g.generateResults()
 
 }
-
-// func RunGame(game *Game) {
-// 	change := true
-// 	for {
-// 		if change {
-// 		}
-// 		getAnswer(game)
-// 		if game.answer == game.result {
-// 			game.win++
-// 			change = true
-// 		} else {
-// 			game.loss++
-// 			change = false
-// 		}
-// 		game.roundTime = time.Since(game.roundStart)
-// 		game.totalTime += game.roundTime
-// 		printResults(*game)
-// 		if game.win >= game.numRounds || game.loss >= game.numRounds {
-// 			break
-// 		}
-// 	}
-// }
 
 func (g *Game) generateResults() {
 	switch g.Op {
@@ -71,7 +54,6 @@ func (g *Game) generateResults() {
 }
 
 func (g *Game) numGenerator() {
-	g.Round = make([]int, numVals)
 	var top int
 	var bot int
 	var topMin int
@@ -105,12 +87,31 @@ func (g *Game) numGenerator() {
 	}
 	g.Round[0] = rand.Intn(top-topMin) + topMin
 	g.Round[1] = rand.Intn(bot-botMin) + botMin
-	if g.Round[0] < g.Round[1] {
+	if g.Round[0] <= g.Round[1] {
 		g.Round = swap(g.Round)
 	}
 	if g.Round[1] == 0 {
 		g.Round[1]++
 	}
+}
+
+func (g *Game) PrepareRound(r *http.Request) {
+	g.Round = make([]int, numVals)
+    err := r.ParseForm()
+    if err != nil {
+        g.Err = err
+        log.Panic(err)
+    }
+    decoder := form.NewDecoder()
+
+	err = decoder.Decode(&g, r.Form)
+	if err != nil {
+        g.Err = err
+		log.Panic(err)
+	}
+
+    log.Println(g)
+	g.Operations = []string{"+", "-", "*", "/"}
 }
 
 func swap(nums []int) []int {
