@@ -6,7 +6,7 @@ import (
 )
 
 templ Professor() {
-	<div class="professor full-background">
+	<div class="professor full-background" id="professor">
 		<div class="calculator">
 			<p class="calculator-title">Little Professor</p>
 			<form id="calculator-form" hx-get="/start_professor" hx-target="#calculator-form" hx-swap="outerHTML">
@@ -49,9 +49,16 @@ templ PlayRound(game utilities.Game) {
 }
 
 templ ShowResults(game utilities.Game) {
-	if game.Win > game.Loss {
-		<p>You Won!</p>
-	} else {
-		<p>You Lost!</p>
-	}
+	<div id="professor-results">
+		switch game.Final {
+			case 1:
+				<p>{ "You Won!" }</p>
+			case -1:
+				<p>{ "You Lost..." }</p>
+			case 0:
+				<p>{ "It's a tie..." }</p>
+		}
+		<button hx-get="/littleprofessor" hx-target=".calculator" hx-swap="outerHTML">Play Again</button>
+		<button hx-get="/projects" hx-target="closest body" hx-swap="outerHTML">Back</button>
+	</div>
 }

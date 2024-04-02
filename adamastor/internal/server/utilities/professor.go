@@ -25,6 +25,7 @@ type Game struct {
 	Loss       int
 	Result     int
 	Answer     int
+    Final      int
 	Round      []int
 	Op         string
 	Operations []string

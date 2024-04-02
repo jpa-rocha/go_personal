@@ -6,7 +6,6 @@ import (
 	"net/http"
 
 	"adamastor/internal/server/templates"
-	"adamastor/internal/server/utilities"
 	"adamastor/public"
 )
 
@@ -52,43 +51,16 @@ func (r *Router) HandleRoutes() {
 //TODO: Check templ Render error and display 500 in case of error
 
 func HandleCV(w http.ResponseWriter, r *http.Request) {
-    templates.Layout(templates.CV()).Render(r.Context(), w)
+	err := templates.Layout(templates.CV()).Render(r.Context(), w)
+	if err != nil {
+		log.Println("error rendering content")
+	}
 }
 
 func HandleProjects(w http.ResponseWriter, r *http.Request) {
-    templates.Layout(templates.Project()).Render(r.Context(), w)
+	err := templates.Layout(templates.Project()).Render(r.Context(), w)
+	if err != nil {
+		log.Println("error rendering content")
+	}
 }
 
-func HandleLittleProfessor(w http.ResponseWriter, r *http.Request) {
-    templates.Professor().Render(r.Context(), w)
-}
-
-func startProfessor(w http.ResponseWriter, r *http.Request) {
-    game := utilities.Game{}
-    game.PrepareRound(r)
-    game.MakeRound()
-    templates.StartProfessor(game).Render(r.Context(), w)
-}
-
-func playRound(w http.ResponseWriter, r *http.Request) {
-    game := utilities.Game{}
-    game.PrepareRound(r)
-    if game.Answer == game.Result {
-        game.Win += 1
-    } else {
-        game.Loss += 1
-    }
-    game.NumRounds -= 1
-    log.Println(game.NumRounds)
-    if game.NumRounds == 0 {
-        templates.ShowResults(game).Render(r.Context(), w)
-        return
-    }
-    game.MakeRound()
-    log.Println(game)
-    templates.PlayRound(game).Render(r.Context(), w)
-}
-
-func HandleIndex(w http.ResponseWriter, r *http.Request) {
-    templates.Layout(templates.Index()).Render(r.Context(), w)
-}
