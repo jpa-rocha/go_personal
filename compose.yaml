@@ -4,6 +4,7 @@ services:
   adamastor:
     build: .
     ports:
-      - "8000:8000"
+      - "80:80"
+      - "443:80"
     volumes:
       - "${PWD}/adamastor/:/adamastor"
