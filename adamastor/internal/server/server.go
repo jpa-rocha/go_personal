@@ -12,7 +12,7 @@ import (
 // TODO: need to come from config.
 const (
 	timeOut = 10
-	port    = ":8000"
+	port    = ":80"
 )
 
 type Server struct {
