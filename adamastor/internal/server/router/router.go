@@ -40,8 +40,13 @@ func (r *Router) SetStaticPaths() {
 
 func (r *Router) HandleRoutes() {
 	r.SetStaticPaths()
+    
+    // Main Routes
 	r.Mux.HandleFunc("/cv", HandleCV)
 	r.Mux.HandleFunc("/projects", HandleProjects)
+	r.Mux.HandleFunc("/about", HandleAbout)
+
+    // Little Professor Routes
 	r.Mux.HandleFunc("/littleprofessor", HandleLittleProfessor)
 	r.Mux.HandleFunc("/start_professor", startProfessor)
 	r.Mux.HandleFunc("/play_round", playRound)
@@ -59,6 +64,13 @@ func HandleCV(w http.ResponseWriter, r *http.Request) {
 
 func HandleProjects(w http.ResponseWriter, r *http.Request) {
 	err := templates.Layout(templates.Project()).Render(r.Context(), w)
+	if err != nil {
+		log.Println("error rendering content")
+	}
+}
+
+func HandleAbout(w http.ResponseWriter, r *http.Request) {
+	err := templates.Layout(templates.About()).Render(r.Context(), w)
 	if err != nil {
 		log.Println("error rendering content")
 	}
