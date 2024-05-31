@@ -1,2 +1,4 @@
+adamastor/internal/server/components/*templ.go
 adamastor/adamastor
 adamastor/vendor
+cert-cache
