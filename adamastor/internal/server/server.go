@@ -5,14 +5,17 @@ import (
 	"net/http"
 	"os"
 	"time"
+	"crypto/tls"
 
 	"adamastor/internal/server/router"
+	"golang.org/x/crypto/acme/autocert"
+	"golang.org/x/crypto/acme"
 )
 
 // TODO: need to come from config.
 const (
 	timeOut = 10
-	port    = ":80"
+	port    = ":443"
 )
 
 type Server struct {
@@ -29,7 +32,7 @@ const (
 	LogError
 )
 
-func NewServer() *Server {
+func NewServer(certManager autocert.Manager) *Server {
 	logger := log.New(os.Stderr, "adamastor: ", int(LogInfo))
 
 	config := &http.Server{
@@ -37,6 +40,10 @@ func NewServer() *Server {
 		ReadTimeout:  timeOut * time.Second,
 		WriteTimeout: timeOut * time.Second,
 		ErrorLog:     logger,
+		TLSConfig: &tls.Config{
+			GetCertificate: certManager.GetCertificate,
+			NextProtos:     []string{"http/1.1", acme.ALPNProto},
+		},
 	}
 	server := Server{
 		Config: config,

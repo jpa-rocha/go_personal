@@ -4,8 +4,8 @@ institution: Wobcom GmbH.
 location: Wolfsburg
 country: DE
 start_date: 2023-05
-end_date: 2024-12
-position: Software Developer Intern
+end_date: Present
+position: Software Developer
 type: Professional
 ---
 

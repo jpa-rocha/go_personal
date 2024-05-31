@@ -30,17 +30,17 @@ ENV PATH=$PATH:/root/go/bin
 
 
 FROM build
-
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 WORKDIR /adamastor
 RUN go mod init adamastor
 
-RUN go get github.com/a-h/templ &&\
-    go get github.com/go-playground/form &&\
-    go get github.com/spf13/cobra &&\
-    go get github.com/yuin/goldmark
+#RUN go get github.com/a-h/templ &&\
+#    go get github.com/go-playground/form &&\
+#    go get github.com/spf13/cobra &&\
+#    go get github.com/yuin/goldmark &&\
+#    go get golang.org/x/crypto/acme/autocert@latest
+
 RUN go mod tidy && go mod vendor
 ENV PATH=$PATH:$WORKDIR
-# COPY adamastor/ .
 
 CMD [ "./run_server.sh" ]
-# CMD [ "sleep", "1d" ]
